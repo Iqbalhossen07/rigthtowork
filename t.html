@@ -1,495 +1,998 @@
 <!doctype html>
-<html lang="en" class="h-full">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>WorkWise UK — Find UK Jobs. Get Hired Fast.</title>
-    <meta name="description" content="Apply in minutes with verified UK employers. Mobile-first, secure, and fast. Find roles across London, Manchester, Birmingham and more." />
-    <link rel="icon" href="/favicon.svg" />
+    <title>Rongdhanu Software — UK-based Premium Software Company</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&family=Merriweather:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Merriweather:wght@700;800;900&display=swap" rel="stylesheet" />
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
-        darkMode: ['class'],
         theme: {
-          extend: {}
-        }
-      }
+          container: { center: true, padding: "2rem" },
+          extend: {
+            colors: { primary: "#ef4444" },
+            fontFamily: {
+              heading: ["Merriweather", "serif"],
+              body: ["Lora", "serif"],
+            },
+            borderRadius: { xl: "1rem" },
+          },
+        },
+      };
     </script>
-    <style>
-      :root{
-        --background: 0 0% 100%;
-        --foreground: 222.2 84% 4.9%;
-        --card: 0 0% 100%;
-        --card-foreground: 222.2 84% 4.9%;
-        --popover: 0 0% 100%;
-        --popover-foreground: 222.2 84% 4.9%;
-        --primary: 222.2 47.4% 11.2%;
-        --primary-foreground: 210 40% 98%;
-        --secondary: 210 40% 96.1%;
-        --secondary-foreground: 222.2 47.4% 11.2%;
-        --muted: 210 40% 96.1%;
-        --muted-foreground: 215.4 16.3% 46.9%;
-        --accent: 210 40% 96.1%;
-        --accent-foreground: 222.2 47.4% 11.2%;
-        --destructive: 0 84.2% 60.2%;
-        --destructive-foreground: 210 40% 98%;
-        --border: 214.3 31.8% 91.4%;
-        --input: 214.3 31.8% 91.4%;
-        --ring: 222.2 84% 4.9%;
-        --radius: 0.75rem;
-        --brand-pink: 334 100% 88%; /* #FFBFDA */
-        --brand-blue: 219 100% 91%; /* #CFE0FF */
+    <style type="text/tailwindcss">
+      @layer base {
+        html { @apply font-body text-slate-900 bg-white; }
+        h1,h2,h3,h4,h5,h6 { @apply font-heading; }
+        .container { @apply max-w-7xl; }
       }
-      body{font-family:"Lora",serif;background-color:hsl(var(--background));color:hsl(var(--foreground));}
-      h1,h2,h3,h4,h5,h6{font-family:"Merriweather",serif;letter-spacing:-0.01em;}
-      .bg-site-gradient{background-image:
-        radial-gradient(60% 60% at 20% 10%, hsl(var(--brand-pink) / 0.45) 0%, transparent 60%),
-        radial-gradient(50% 50% at 80% 10%, hsl(var(--brand-blue) / 0.45) 0%, transparent 60%),
-        linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--background)) 100%)
-      }
-      .glass{background-color:hsla(0,0%,100%,0.6);backdrop-filter:blur(12px);border:1px solid hsl(var(--border));}
-      .focus-ring:focus-visible{outline:none;box-shadow:0 0 0 2px hsl(var(--ring)),0 0 0 4px hsl(var(--background));}
-      .blob{filter:blur(50px);} 
-      @keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-      .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;height:3rem;padding:0 1.5rem;border-radius:9999px;font-weight:600;transition:.2s box-shadow, .2s transform;}
-      .btn-primary{color:#0f172a;background-image:linear-gradient(90deg,hsl(var(--brand-pink)) 0%, hsl(var(--brand-blue)) 100%);box-shadow:0 4px 14px rgba(0,0,0,.06)}
-      .btn-primary:hover{box-shadow:0 8px 22px rgba(0,0,0,.08)}
-      .btn-ghost{background-color:rgba(255,255,255,.6);border:1px solid hsl(var(--border))}
+      @keyframes marquee-x { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+      
     </style>
   </head>
-  <body class="bg-site-gradient min-h-full">
-    <!-- Decorative blobs -->
-    <div aria-hidden class="pointer-events-none fixed inset-0 -z-10">
-      <div class="absolute -top-24 -left-24 w-[420px] h-[420px] rounded-full bg-[hsl(var(--brand-pink))] opacity-60 blob"></div>
-      <div class="absolute -top-20 right-0 w-[380px] h-[380px] rounded-full bg-[hsl(var(--brand-blue))] opacity-60 blob"></div>
-    </div>
-
-    <!-- Header -->
-    <header class="sticky top-0 z-50 w-full backdrop-blur bg-white/70 border-b border-[hsl(var(--border))]">
-      <div class="container mx-auto max-w-[1200px] px-4 py-3 flex items-center justify-between">
-        <a href="#" class="flex items-center gap-2" aria-label="WorkWise UK home">
-          <span class="h-8 w-8 rounded-xl" style="background:linear-gradient(135deg,hsl(var(--brand-pink)),hsl(var(--brand-blue)))"></span>
-          <span class="font-semibold tracking-tight text-slate-900 text-lg">WorkWise UK</span>
-        </a>
-        <nav class="hidden md:flex items-center gap-6" aria-label="Primary">
-          <a href="#jobs" class="text-sm text-slate-700 hover:text-slate-900">Jobs</a>
-          <a href="#how-it-works" class="text-sm text-slate-700 hover:text-slate-900">How it works</a>
-          <a href="#categories" class="text-sm text-slate-700 hover:text-slate-900">Categories</a>
-          <a href="#faq" class="text-sm text-slate-700 hover:text-slate-900">FAQ</a>
-          <a href="#contact" class="text-sm text-slate-700 hover:text-slate-900">Contact</a>
-          <a href="#apply" class="btn btn-primary h-10 text-sm">Apply Now</a>
-        </nav>
-        <button id="menuBtn" class="md:hidden p-2 rounded-full border border-[hsl(var(--border))]" aria-label="Open menu">
-          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
-        </button>
-      </div>
-      <div id="mobileDrawer" class="hidden fixed inset-0 z-50 bg-black/30">
-        <div class="absolute inset-0 ml-auto h-full w-full sm:w-[380px] bg-white p-6 flex flex-col gap-4">
-          <div class="flex items-center justify-between">
-            <a href="#" class="flex items-center gap-2">
-              <span class="h-8 w-8 rounded-xl" style="background:linear-gradient(135deg,hsl(var(--brand-pink)),hsl(var(--brand-blue)))"></span>
-              <span class="font-semibold tracking-tight text-slate-900 text-lg">WorkWise UK</span>
-            </a>
-            <button id="closeDrawer" class="p-2 rounded-full border border-[hsl(var(--border))]" aria-label="Close menu">
-              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M6 18L18 6M6 6l12 12"/></svg>
-            </button>
+  <body>
+    <header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b shadow-xl hover:shadow-2xl">
+      <div class="hidden md:block border-b bg-[#ef4444]">
+        <div class="container py-2 text-xs text-slate-500 flex items-center justify-between">
+          <div class="flex items-center gap-4">
+            <span class="inline-flex items-center gap-1 text-white"><svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72c.12.81.3 1.6.54 2.36a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.72-1.06a2 2 0 0 1 2.11-.45c.76.24 1.55.42 2.36.54A2 2 0 0 1 22 16.92z"/></svg> +44 20 7123 4567</span>
+            <span class="inline-flex items-center gap-1 text-white"><svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z" fill="none"/><path d="m22 6-10 7L2 6"/></svg> hello@rongdhanu.co.uk</span>
+            <span class="hidden lg:inline-flex items-center gap-1 text-white"><svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg> London, UK</span>
           </div>
-          <nav class="flex flex-col gap-2 text-base">
-            <a href="#jobs" class="py-3 px-2 rounded-xl hover:bg-slate-50">Jobs</a>
-            <a href="#how-it-works" class="py-3 px-2 rounded-xl hover:bg-slate-50">How it works</a>
-            <a href="#categories" class="py-3 px-2 rounded-xl hover:bg-slate-50">Categories</a>
-            <a href="#faq" class="py-3 px-2 rounded-xl hover:bg-slate-50">FAQ</a>
-            <a href="#contact" class="py-3 px-2 rounded-xl hover:bg-slate-50">Contact</a>
-            <a href="#apply" class="btn btn-primary h-12 text-base mt-2 text-center">Apply Now</a>
+          <nav class="flex items-center gap-4">
+            <a href="#careers" class="text-white hover:text-slate-700">Careers</a>
+            <a href="#support" class="text-white hover:text-slate-700">Support</a>
           </nav>
         </div>
       </div>
+      <div class="container h-16 flex items-center justify-between ">
+        <a href="#top" class="flex items-center gap-2">
+          <div class="w-8 h-8 rounded-md bg-primary"></div>
+          <span class="font-bold tracking-tight">Rongdhanu Software</span>
+        </a>
+        <nav class="hidden md:flex items-center gap-6 text-sm">
+          <a href="#about" class="text-slate-600 hover:text-slate-900">About</a>
+          <a href="#features" class="text-slate-600 hover:text-slate-900">Features</a>
+          <a href="#pricing" class="text-slate-600 hover:text-slate-900">Pricing</a>
+          <a href="#blog" class="text-slate-600 hover:text-slate-900">Blog</a>
+          <a href="#contact" class="hidden sm:inline-flex items-center justify-center h-10 px-4 rounded-md text-sm hover:bg-slate-50">Contact</a>
+
+        </nav>
+        <div class="flex items-center gap-2">
+          <a href="#cta" class="inline-flex items-center gap-2 h-10 px-4 rounded-md text-sm font-medium text-white bg-primary hover:bg-red-500">Start a Project <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+        </div>
+      </div>
+      <div class="md:hidden border-t">
+        <details class="container py-3">
+          <summary class="flex items-center justify-between text-sm font-medium cursor-pointer">Menu <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <div class="mt-2 grid gap-2 text-slate-600">
+            <a href="#about" class="py-2 hover:text-slate-900">About</a>
+            <a href="#features" class="py-2 hover:text-slate-900">Features</a>
+            <a href="#pricing" class="py-2 hover:text-slate-900">Pricing</a>
+            <a href="#blog" class="py-2 hover:text-slate-900">Blog</a>
+          </div>
+        </details>
+      </div>
     </header>
 
-    <main>
-      <!-- Hero -->
-      <section class="pt-10 md:pt-16">
-        <div class="container mx-auto max-w-[1200px] px-4">
-          <div class="mx-auto max-w-3xl text-center">
-            <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900">Find UK Jobs. Get Hired Fast.</h1>
-            <p class="mt-4 text-slate-700 text-base md:text-lg">Apply in minutes. Verified UK employers. Mobile-first, secure, and fast.</p>
-            <div class="mt-6 flex items-center justify-center gap-3">
-              <a href="#apply" class="btn btn-primary">Start Application</a>
-              <a href="#jobs" class="btn btn-ghost">Browse Jobs</a>
-            </div>
-            <div class="mt-6 flex flex-wrap items-center justify-center gap-4 text-xs text-slate-600">
-              <span class="inline-flex items-center gap-1"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg> GDPR-ready</span>
-              <span class="inline-flex items-center gap-1"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> UK-verified employers</span>
-              <span class="inline-flex items-center gap-1"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18M5 10l7-7 7 7"/></svg> Secure uploads</span>
-            </div>
-          </div>
-        </div>
-      </section>
+    <!-- hero section start -->
 
-      <!-- Logo cloud -->
-      <section class="mt-10" aria-label="Employer logos">
-        <div class="container mx-auto max-w-[1200px] px-4">
-          <div class="glass rounded-2xl p-4 overflow-hidden">
-            <div class="flex gap-12 whitespace-nowrap" style="animation:scroll 30s linear infinite">
-              <template id="logoTpl">
-                <div class="inline-flex items-center gap-2 text-slate-500">
-                  <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V8l9-5 9 5v13H3Z"/></svg>
-                  <span class="text-sm">UK Employer</span>
+<section id="top" class="container grid grid-cols-1 lg:grid-cols-2 gap-12 items-center py-16 md:py-24 relative">
+    <div data-aos="fade-right">
+        <span class="inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs text-slate-500 mb-6"><span class="w-3 h-3 rounded-full bg-primary"></span> Premium UK-based Software Consultancy</span>
+        <h1 class="text-3xl md:text-4xl lg:text-4xl font-extrabold tracking-tight leading-tight">We design and build modern software <span class="text-primary"> that moves businesses forward </span></h1>
+        <p class="mt-6 text-lg text-slate-600 max-w-2xl">From strategy to scalable delivery, our London team partners with you to ship reliable, secure, and elegant products.From strategy to scalable delivery, our London team partners with you to ship reliable, secure, and elegant products.From strategy to scalable delivery, our London team partners with you to ship reliable, secure, and elegant products.</p>
+        <div class="mt-8 flex flex-wrap items-center gap-4">
+            <a href="#cta" class="inline-flex items-center gap-2 h-12 px-6 rounded-lg text-lg font-semibold text-white bg-primary hover:bg-red-700 transition-all duration-300 shadow-lg shadow-red-200">
+                Get Started 
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+                </svg>
+            </a>
+            <a href="#demo" class="inline-flex items-center h-12 px-6 rounded-lg text-lg font-semibold border border-gray-300 text-gray-800 hover:bg-gray-100 transition-all duration-300 shadow-md">
+                Book a Demo 
+                <svg class="w-5 h-5 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+                </svg>
+            </a>
+        </div>
+        <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="rounded-xl border p-4" data-aos="zoom-in" data-aos-delay="100">
+                <div class="flex items-center gap-3">
+                    <svg class="w-5 h-5 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="M5 8l7 4 7-4"/></svg>
+                    <div>
+                        <p class="font-semibold">Enterprise-grade security</p>
+                        <p class="text-sm text-slate-500">ISO practices, audits, and SOC2 workflows.</p>
+                    </div>
                 </div>
-              </template>
-              <span class="inline-flex items-center gap-8">
-                <span class="inline-flex gap-8" id="logoRow"></span>
-                <span class="inline-flex gap-8" id="logoRow2"></span>
+            </div>
+            <div class="rounded-xl border p-4" data-aos="zoom-in" data-aos-delay="200">
+                <div class="flex items-center gap-3">
+                    <svg class="w-5 h-5 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2H6a2 2 0 0 0-2 2v7"/><path d="M22 13a5 5 0 0 1-5 5"/><path d="M9 22h7a2 2 0 0 0 2-2v-7"/><path d="M2 9a5 5 0 0 1 5-5"/></svg>
+                    <div>
+                        <p class="font-semibold">Delivery at startup speed</p>
+                        <p class="text-sm text-slate-500">Iterate fast without compromising quality.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="relative w-full h-[520px] md:h-[720px] flex items-center justify-center p-4 md:p-8 bg-white rounded-2xl border border-gray-100 mt-12 lg:mt-0" data-aos="fade-left">
+        <div class="absolute inset-0 overflow-hidden rounded-2xl">
+            <div class="absolute -top-10 -left-10 w-60 h-60 bg-orange-200 opacity-20 rounded-full blur-3xl"></div>
+            <div class="absolute top-1/2 right-0 -translate-y-1/2 w-48 h-48 bg-red-200 opacity-20 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 left-1/4 w-72 h-72 bg-blue-200 opacity-20 rounded-full blur-3xl"></div>
+            <div class="absolute inset-0 z-0 opacity-10" style="background-image: radial-gradient(circle, #000 1px, transparent 1px);"></div>
+        </div>
+
+        <div class="relative z-10 w-full md:w-[400px] h-full flex items-center justify-center p-4">
+            <div class="relative w-full h-full bg-gray-100 rounded-3xl overflow-hidden shadow-2xl transition-transform duration-500 hover:scale-105">
+                <img src="img/3.png" alt="Phone in hand" class="object-cover w-full h-full" />
+                <div class="absolute inset-0 bg-black opacity-20 transition-opacity duration-300 hover:opacity-0"></div>
+            </div>
+            <div class="absolute bottom-6 left-1/2 -translate-x-1/2 bg-white px-6 py-3 rounded-full shadow-xl text-lg font-bold text-gray-800 whitespace-nowrap border border-gray-200 transform translate-y-2 opacity-0 animate-fade-in-up">
+                Creating Marketing Models...
+            </div>
+            <div class="absolute top-8 right-8 z-20 transform animate-pulse-fast">
+                <svg class="w-10 h-10 text-orange-500 drop-shadow-lg" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2L2 12L12 22L22 12L12 2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" fill="#F97316"/>
+                    <path d="M12 6L6 12L12 18L18 12L12 6Z" fill="white"/>
+                </svg>
+            </div>
+        </div>
+
+        <div class="hidden md:block absolute -bottom-8 left-0 w-[calc(50%-1rem)] bg-white p-4 rounded-xl shadow-lg border border-gray-200" data-aos="zoom-in" data-aos-delay="200">
+            <p class="text-sm font-medium text-gray-500">Blog Traffic <span class="text-green-500 font-semibold inline-flex items-center"><svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg> +18.5%</span></p>
+            <p class="text-3xl font-bold mt-1">125,536</p>
+            <p class="text-xs text-gray-400">Since last week</p>
+        </div>
+
+        <div class="hidden md:block absolute -bottom-8 right-0 w-[calc(50%-1rem)] bg-white p-4 rounded-xl shadow-lg border border-gray-200" data-aos="zoom-in" data-aos-delay="300">
+            <p class="text-sm font-medium text-gray-500">SEO Analytics <span class="text-green-500 font-semibold inline-flex items-center"><svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg> +20%</span></p>
+            <div class="relative w-24 h-24 mt-2 mx-auto">
+                <svg class="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="45" fill="none" class="stroke-gray-200" stroke-width="10"></circle>
+                    <circle cx="50" cy="50" r="45" fill="none" class="stroke-primary" stroke-width="10" stroke-dasharray="283" stroke-dashoffset="56.6"></circle>
+                </svg>
+                <span class="absolute inset-0 flex items-center justify-center text-xl font-bold">80%</span>
+            </div>
+        </div>
+
+        <div class="hidden md:block absolute top-1/2 -right-8 transform -translate-y-1/2 rotate-6 bg-red-500 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md">AI Integrated</div>
+
+        <div class="hidden md:block absolute top-8 right-4 lg:right-auto lg:left-full lg:ml-8 flex flex-col space-y-2 p-2 bg-white rounded-xl shadow-lg border border-gray-200">
+            <div class="w-8 h-8 rounded-md grid place-items-center text-gray-400 bg-gray-50 hover:bg-gray-100 transition-colors cursor-pointer"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg></div>
+            <div class="w-8 h-8 rounded-md grid place-items-center text-gray-400 bg-gray-50 hover:bg-gray-100 transition-colors cursor-pointer"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h10M7 16h10"></path></svg></div>
+            <div class="w-8 h-8 rounded-md grid place-items-center text-gray-400 bg-gray-50 hover:bg-gray-100 transition-colors cursor-pointer"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg></div>
+            <div class="w-8 h-8 rounded-md grid place-items-center text-gray-400 bg-gray-50 hover:bg-gray-100 transition-colors cursor-pointer"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg></div>
+        </div>
+
+        <div class="hidden md:block absolute top-[calc(50%+100px)] right-4 lg:right-auto lg:left-full lg:ml-8 w-16 h-16 rounded-full bg-orange-100 border-2 border-orange-300 grid place-items-center text-orange-500 shadow-md">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+            <span class="absolute bottom-1 right-1 w-4 h-4 rounded-full bg-primary text-white text-xs flex items-center justify-center">+</span>
+        </div>
+    </div>
+</section>
+
+    <!-- hero section end -->
+
+
+    <!-- about section start  -->
+
+      <section id="about" class="border-t bg-gradient-to-br from-white to-slate-50 py-16 md:py-24 relative overflow-hidden">
+    <div class="container grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div data-aos="fade-right" data-aos-duration="800" class="relative z-10">
+            <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-slate-800 leading-tight">Empowering Businesses with <span class="text-primary">Innovative Software Solutions</span></h2>
+            <p class="mt-6 text-lg text-slate-700 max-w-xl">We are a UK-based team of passionate engineers, creative designers, and strategic product thinkers. We specialize in building robust, high-performance platforms with an unwavering focus on exceptional user experience, accessibility, and long-term maintainability.</p>
+
+              <p class="mt-6 text-lg text-slate-700 max-w-xl">We are a UK-based team of passionate engineers, creative designers, and strategic product thinkers. </p>
+            <ul class="mt-8 space-y-4 text-slate-700">
+                <li class="flex items-center gap-3">
+                    <svg class="w-6 h-6 text-primary flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> 
+                    <p class="font-medium">Globally recognized UK-based team, serving diverse clientele.</p>
+                </li>
+                <li class="flex items-center gap-3">
+                    <svg class="w-6 h-6 text-primary flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> 
+                    <p class="font-medium">Transparent development processes with continuous weekly demonstrations.</p>
+                </li>
+                <li class="flex items-center gap-3">
+                    <svg class="w-6 h-6 text-primary flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> 
+                    <p class="font-medium">Security-first mindset integrated into all best practices and workflows.</p>
+                </li>
+            </ul>
+
+              <div class="mt-8 flex flex-wrap items-center gap-4">
+            <a href="#cta" class="inline-flex items-center gap-2 h-12 px-6 rounded-lg text-lg font-semibold text-white bg-primary hover:bg-red-700 transition-all duration-300 shadow-lg shadow-red-200">
+                Get Started 
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+                </svg>
+            </a>
+         
+        </div>
+        </div>
+        <div data-aos="fade-left" data-aos-duration="800" class="relative z-10">
+    <div class="relative overflow-hidden rounded-3xl  bg-white p-4">
+        <div class="relative w-full h-96">
+            <div id="image-slider" class="flex transition-transform duration-500 ease-in-out">
+                <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=2000&auto=format&fit=crop" class="w-full h-96 object-cover rounded-2xl shadow-lg flex-shrink-0" alt="Team workshop" />
+                <img src="https://images.unsplash.com/photo-1557800636-894a64c1696f?q=80&w=2000&auto=format&fit=crop" class="w-full h-96 object-cover rounded-2xl shadow-lg flex-shrink-0" alt="Code review" />
+                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2000&auto=format&fit-cover" class="w-full h-96 object-cover rounded-2xl shadow-lg flex-shrink-0" alt="Design sprint" />
+                <img src="https://images.unsplash.com/photo-1508780709619-79562169bc64?q=80&w=2000&auto=format&fit=crop" class="w-full h-96 object-cover rounded-2xl shadow-lg flex-shrink-0" alt="Another slide" />
+            </div>
+            
+            <button id="prev-slide" class="absolute top-1/2 left-4 -translate-y-1/2 bg-white rounded-full p-2 shadow-md transition-all duration-300 hover:bg-gray-100">
+                <svg class="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+            </button>
+            <button id="next-slide" class="absolute top-1/2 right-4 -translate-y-1/2 bg-white rounded-full p-2 shadow-md transition-all duration-300 hover:bg-gray-100">
+                <svg class="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </button>
+        </div>
+
+        
+    </div>
+
+      <div class="mt-8 flex flex-wrap gap-4 justify-center items-center">
+                <div class="bg-white p-5 rounded-lg shadow-xl text-center transition-transform hover:scale-105 duration-300 min-w-[150px]">
+                    <p class="text-4xl font-extrabold text-primary">10+</p>
+                    <p class="text-sm text-slate-600 mt-1">Years Experience</p>
+                </div>
+                <div class="bg-white p-5 rounded-lg shadow-xl text-center transition-transform hover:scale-105 duration-300 min-w-[150px]">
+                    <p class="text-4xl font-extrabold text-primary">50+</p>
+                    <p class="text-sm text-slate-600 mt-1">Successful Projects</p>
+                </div>
+                <div class="bg-white p-5 rounded-lg shadow-xl text-center transition-transform hover:scale-105 duration-300 min-w-[150px]">
+                    <p class="text-4xl font-extrabold text-primary">100%</p>
+                    <p class="text-sm text-slate-600 mt-1">Client Satisfaction</p>
+                </div>
+            </div>
+
+    
+    
+ 
+</div>
+    </div>
+      </section>
+    <!-- about section end  -->
+
+    <section id="about" class="border-t bg-gradient-to-br from-white to-slate-50 py-16 md:py-24 relative overflow-hidden">
+    <div class="container grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div data-aos="fade-right" data-aos-duration="800" class="relative z-10">
+            <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-slate-800 leading-tight">Empowering Businesses with <span class="text-primary">Innovative Software Solutions</span></h2>
+            <p class="mt-6 text-lg text-slate-700 max-w-xl">We are a UK-based team of passionate engineers, creative designers, and strategic product thinkers. We specialize in building robust, high-performance platforms with an unwavering focus on exceptional user experience, accessibility, and long-term maintainability.</p>
+            <ul class="mt-8 space-y-4 text-slate-700">
+                <li class="flex items-center gap-3">
+                    <svg class="w-6 h-6 text-primary flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> 
+                    <p class="font-medium">Globally recognized UK-based team, serving diverse clientele.</p>
+                </li>
+                <li class="flex items-center gap-3">
+                    <svg class="w-6 h-6 text-primary flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> 
+                    <p class="font-medium">Transparent development processes with continuous weekly demonstrations.</p>
+                </li>
+                <li class="flex items-center gap-3">
+                    <svg class="w-6 h-6 text-primary flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> 
+                    <p class="font-medium">Security-first mindset integrated into all best practices and workflows.</p>
+                </li>
+            </ul>
+        </div>
+        <div data-aos="fade-left" data-aos-duration="800" class="relative z-10">
+            <div class="overflow-hidden rounded-xl shadow-2xl bg-white p-4">
+                <div class="flex gap-4 auto-slider snap-x snap-mandatory overflow-x-auto scroll-smooth pb-4">
+                    <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=2000&auto=format&fit=crop" class="snap-start w-[85%] sm:w-[70%] md:w-[60%] lg:w-[50%] h-64 object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105" alt="Team workshop" />
+                    <img src="https://images.unsplash.com/photo-1557800636-894a64c1696f?q=80&w=2000&auto=format&fit=crop" class="snap-start w-[85%] sm:w-[70%] md:w-[60%] lg:w-[50%] h-64 object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105" alt="Code review" />
+                    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2000&auto=format&fit=crop" class="snap-start w-[85%] sm:w-[70%] md:w-[60%] lg:w-[50%] h-64 object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105" alt="Design sprint" />
+                </div>
+            </div>
+            
+            <div class="mt-8 flex flex-wrap gap-4 justify-center lg:justify-start">
+                <div class="bg-white p-5 rounded-lg shadow-xl text-center transition-transform hover:scale-105 duration-300 min-w-[150px]">
+                    <p class="text-4xl font-extrabold text-primary">10+</p>
+                    <p class="text-sm text-slate-600 mt-1">Years Experience</p>
+                </div>
+                <div class="bg-white p-5 rounded-lg shadow-xl text-center transition-transform hover:scale-105 duration-300 min-w-[150px]">
+                    <p class="text-4xl font-extrabold text-primary">50+</p>
+                    <p class="text-sm text-slate-600 mt-1">Successful Projects</p>
+                </div>
+                <div class="bg-white p-5 rounded-lg shadow-xl text-center transition-transform hover:scale-105 duration-300 min-w-[150px]">
+                    <p class="text-4xl font-extrabold text-primary">100%</p>
+                    <p class="text-sm text-slate-600 mt-1">Client Satisfaction</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+     <!-- features area section start  -->
+
+     <section id="features" class="container py-16 md:py-24">
+    <div data-aos="fade-up">
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-center">Powerful features,  <span class="text-primary">thoughtfully designed</span> </h2>
+        <p class="mt-4 text-slate-600 text-center max-w-2xl mx-auto">Everything you need to plan, build and scale modern software products with confidence.</p>
+    </div>
+    <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="rounded-2xl border p-6 transition-all duration-300 hover:bg-red-50 hover:shadow-lg" data-aos="fade-up" data-aos-delay="100">
+            <div class="w-10 h-10 rounded-md bg-red-50 text-primary grid place-items-center"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="M5 8l7 4 7-4"/></svg></div>
+            <h3 class="mt-4 font-semibold text-lg">Security by default</h3>
+            <p class="mt-2 text-sm text-slate-600">OWASP-aligned, secure SDLC and continuous monitoring.</p>
+        </div>
+        <div class="rounded-2xl border p-6 transition-all duration-300 hover:bg-orange-50 hover:shadow-lg" data-aos="fade-up" data-aos-delay="200">
+            <div class="w-10 h-10 rounded-md bg-red-50 text-primary grid place-items-center"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2H6a2 2 0 0 0-2 2v7"/><path d="M22 13a5 5 0 0 1-5 5"/><path d="M9 22h7a2 2 0 0 0 2-2v-7"/><path d="M2 9a5 5 0 0 1 5-5"/></svg></div>
+            <h3 class="mt-4 font-semibold text-lg">Performance obsessed</h3>
+            <p class="mt-2 text-sm text-slate-600">Lighthouse 95+, Core Web Vitals and API throughput.</p>
+        </div>
+        <div class="rounded-2xl border p-6 transition-all duration-300 hover:bg-blue-50 hover:shadow-lg" data-aos="fade-up" data-aos-delay="300">
+            <div class="w-10 h-10 rounded-md bg-red-50 text-primary grid place-items-center"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></svg></div>
+            <h3 class="mt-4 font-semibold text-lg">Human-centered UX</h3>
+            <p class="mt-2 text-sm text-slate-600">Accessible, inclusive experiences your users love.</p>
+        </div>
+        <div class="rounded-2xl border p-6 transition-all duration-300 hover:bg-green-50 hover:shadow-lg" data-aos="fade-up" data-aos-delay="100">
+            <div class="w-10 h-10 rounded-md bg-red-50 text-primary grid place-items-center"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M19 13H7"/><path d="M13 7v12"/></svg></div>
+            <h3 class="mt-4 font-semibold text-lg">Global scale</h3>
+            <p class="mt-2 text-sm text-slate-600">CDN-first deployments and resilient multi-region setups.</p>
+        </div>
+        <div class="rounded-2xl border p-6 transition-all duration-300 hover:bg-yellow-50 hover:shadow-lg" data-aos="fade-up" data-aos-delay="200">
+            <div class="w-10 h-10 rounded-md bg-red-50 text-primary grid place-items-center"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7h-9"/><path d="M14 17H5"/><circle cx="7" cy="7" r="2"/><circle cx="17" cy="17" r="2"/></svg></div>
+            <h3 class="mt-4 font-semibold text-lg">Modern stack</h3>
+            <p class="mt-2 text-sm text-slate-600">TypeScript, React, serverless, and cloud-native tooling.</p>
+        </div>
+        <div class="rounded-2xl border p-6 transition-all duration-300 hover:bg-purple-50 hover:shadow-lg" data-aos="fade-up" data-aos-delay="300">
+            <div class="w-10 h-10 rounded-md bg-red-50 text-primary grid place-items-center"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20v-6"/><path d="M18 20V10"/><path d="M6 20V14"/></svg></div>
+            <h3 class="mt-4 font-semibold text-lg">Data you can trust</h3>
+            <p class="mt-2 text-sm text-slate-600">Auditable pipelines, backups, and observability built-in.</p>
+        </div>
+    </div>
+    </section>
+     <!-- features area section end   -->
+
+     <!-- video section start -->
+
+    <section class="border-t bg-slate-50/70">
+      
+      <div class="container py-16 md:py-24">
+         <div data-aos="fade-up">
+              <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-center" data-aos="fade-up">Watch <span class="text-primary"> Demo</span></h2>
+
+        <p class="mt-4 text-slate-600 text-center max-w-2xl mx-auto mb-8">Everything you need to plan, build and scale modern software products with confidence.</p>
+    </div>
+
+        <div class="relative mx-auto max-w-8xl" data-aos="fade-in">
+          <button class="group relative w-full overflow-hidden rounded-2xl video-trigger" aria-label="Play company video" data-video="https://www.youtube.com/embed/ysz5S6PUM-U?autoplay=1&rel=0">
+            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2000&auto=format&fit=crop" alt="Video preview" class="aspect-video w-full h-96 object-cover" />
+            <div class="absolute inset-0 grid place-items-center bg-black/20">
+              <span class="inline-flex items-center gap-2 rounded-full bg-white/90 px-5 py-3 text-sm font-medium shadow group-hover:bg-white">
+                <svg class="w-4 h-4 text-primary" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Watch the video
               </span>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Benefits -->
-      <section class="mt-14 md:mt-16">
-        <div class="container mx-auto max-w-[1200px] px-4">
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-            <div class="glass rounded-2xl p-5 hover:shadow-lg transition">
-              <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 6v6l4 2"/></svg>
-              <h3 class="mt-3 font-semibold">Fast application</h3>
-              <p class="mt-1 text-sm text-slate-600">Apply in minutes with a streamlined form.</p>
-            </div>
-            <div class="glass rounded-2xl p-5 hover:shadow-lg transition">
-              <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
-              <h3 class="mt-3 font-semibold">Verified UK employers</h3>
-              <p class="mt-1 text-sm text-slate-600">We partner with trusted organisations.</p>
-            </div>
-            <div class="glass rounded-2xl p-5 hover:shadow-lg transition">
-              <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/></svg>
-              <h3 class="mt-3 font-semibold">Mobile-first process</h3>
-              <p class="mt-1 text-sm text-slate-600">Built for phones with large, clear inputs.</p>
-            </div>
-            <div class="glass rounded-2xl p-5 hover:shadow-lg transition">
-              <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.11 4.1 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.72c.12.81.3 1.6.54 2.36a2 2 0 0 1-.45 2.11L8 9a16 16 0 0 0 6 6l.81-1.19a2 2 0 0 1 2.11-.45c.76.24 1.55.42 2.36.54A2 2 0 0 1 22 16.92Z"/></svg>
-              <h3 class="mt-3 font-semibold">24/7 support</h3>
-              <p class="mt-1 text-sm text-slate-600">Chat and email support whenever you need.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Categories -->
-      <section id="categories" class="mt-16 md:mt-20">
-        <div class="container mx-auto max-w-[1200px] px-4">
-          <div class="flex items-center justify-between gap-4 mb-4">
-            <h2 class="text-2xl font-bold">Job Categories</h2>
-            <div class="hidden md:flex items-center gap-2 text-sm text-slate-600">
-              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4h18v6H3zM3 14h18v6H3z"/></svg>
-              Tap a category to browse roles
-            </div>
-          </div>
-          <div class="glass rounded-2xl p-4 mb-4">
-            <label class="relative block">
-              <svg class="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-slate-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-              <input id="catSearch" class="w-full h-12 rounded-full pl-10 pr-4 border border-transparent bg-white/70 focus-ring" placeholder="Search categories (e.g., Healthcare)" />
-            </label>
-          </div>
-          <div id="catChips" class="flex flex-wrap gap-3">
-            <!-- chips -->
-            <a href="#jobs" class="group inline-flex items-center gap-1 rounded-full px-4 py-2 border border-[hsl(var(--border))] bg-white/70 hover:shadow-md transition">Healthcare <svg class="h-4 w-4 text-slate-500 group-hover:translate-x-0.5 transition" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
-            <a href="#jobs" class="group inline-flex items-center gap-1 rounded-full px-4 py-2 border border-[hsl(var(--border))] bg-white/70 hover:shadow-md transition">Hospitality <svg class="h-4 w-4 text-slate-500 group-hover:translate-x-0.5 transition" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
-            <a href="#jobs" class="group inline-flex items-center gap-1 rounded-full px-4 py-2 border border-[hsl(var(--border))] bg-white/70 hover:shadow-md transition">Logistics <svg class="h-4 w-4 text-slate-500 group-hover:translate-x-0.5 transition" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
-            <a href="#jobs" class="group inline-flex items-center gap-1 rounded-full px-4 py-2 border border-[hsl(var(--border))] bg-white/70 hover:shadow-md transition">Retail <svg class="h-4 w-4 text-slate-500 group-hover:translate-x-0.5 transition" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
-            <a href="#jobs" class="group inline-flex items-center gap-1 rounded-full px-4 py-2 border border-[hsl(var(--border))] bg-white/70 hover:shadow-md transition">Construction <svg class="h-4 w-4 text-slate-500 group-hover:translate-x-0.5 transition" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
-            <a href="#jobs" class="group inline-flex items-center gap-1 rounded-full px-4 py-2 border border-[hsl(var(--border))] bg-white/70 hover:shadow-md transition">IT Support <svg class="h-4 w-4 text-slate-500 group-hover:translate-x-0.5 transition" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
-            <a href="#jobs" class="group inline-flex items-center gap-1 rounded-full px-4 py-2 border border-[hsl(var(--border))] bg-white/70 hover:shadow-md transition">Education <svg class="h-4 w-4 text-slate-500 group-hover:translate-x-0.5 transition" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
-            <a href="#jobs" class="group inline-flex items-center gap-1 rounded-full px-4 py-2 border border-[hsl(var(--border))] bg-white/70 hover:shadow-md transition">Cleaning <svg class="h-4 w-4 text-slate-500 group-hover:translate-x-0.5 transition" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
-            <a href="#jobs" class="group inline-flex items-center gap-1 rounded-full px-4 py-2 border border-[hsl(var(--border))] bg-white/70 hover:shadow-md transition">Customer Service <svg class="h-4 w-4 text-slate-500 group-hover:translate-x-0.5 transition" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
-          </div>
-        </div>
-      </section>
-
-      <!-- How it works -->
-      <section id="how-it-works" class="mt-16 md:mt-20">
-        <div class="container mx-auto max-w-[1200px] px-4">
-          <h2 class="text-2xl font-bold">How it works</h2>
-          <ol class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6 relative">
-            <div aria-hidden class="hidden md:block absolute top-12 left-0 right-0 h-0.5 border-t-2 border-dotted border-slate-300"></div>
-            <li class="glass rounded-2xl p-5">
-              <div class="flex items-center gap-3"><div class="h-9 w-9 rounded-full bg-slate-900 text-white flex items-center justify-center font-semibold">1</div><h3 class="font-semibold">Create profile</h3></div>
-              <p class="mt-2 text-sm text-slate-600">Add your details and preferences. Takes just a few minutes.</p>
-            </li>
-            <li class="glass rounded-2xl p-5">
-              <div class="flex items-center gap-3"><div class="h-9 w-9 rounded-full bg-slate-900 text-white flex items-center justify-center font-semibold">2</div><h3 class="font-semibold">Upload documents (UK-ready)</h3></div>
-              <p class="mt-2 text-sm text-slate-600">Securely upload CV/ID. We check they meet UK standards.</p>
-            </li>
-            <li class="glass rounded-2xl p-5">
-              <div class="flex items-center gap-3"><div class="h-9 w-9 rounded-full bg-slate-900 text-white flex items-center justify-center font-semibold">3</div><h3 class="font-semibold">Apply & track status</h3></div>
-              <p class="mt-2 text-sm text-slate-600">Apply to roles and follow progress in your dashboard.</p>
-            </li>
-          </ol>
-        </div>
-      </section>
-
-      <!-- Featured Jobs -->
-      <section id="jobs" class="mt-16 md:mt-20">
-        <div class="container mx-auto max-w-[1200px] px-4">
-          <h2 class="text-2xl font-bold">Featured jobs</h2>
-          <div class="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-            <!-- Job card template repeated -->
-            <!-- 1 -->
-            <article class="glass rounded-2xl p-5 hover:shadow-lg transition">
-              <h3 class="text-lg font-semibold mb-1">Healthcare Assistant</h3>
-              <div class="flex items-center gap-2 text-sm text-slate-600 mb-2">
-                <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V8l9-5 9 5v13H3Z"/></svg>
-                <span>NHS Trust London</span>
-              </div>
-              <div class="flex flex-wrap gap-x-4 gap-y-1 text-sm text-slate-600 mb-3">
-                <span class="inline-flex items-center gap-1"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 6-9 12-9 12S3 16 3 10a9 9 0 1 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>London</span>
-                <span class="inline-flex items-center gap-1"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 22v-2a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v2"/><circle cx="12" cy="7" r="4"/></svg>£28,000–£35,000 / year</span>
-              </div>
-              <div class="flex flex-wrap gap-2 mb-4">
-                <span class="text-xs rounded-full border border-[hsl(var(--border))] px-3 py-1 bg-white/60">Full-time</span>
-                <span class="text-xs rounded-full border border-[hsl(var(--border))] px-3 py-1 bg-white/60">Visa support</span>
-                <span class="text-xs rounded-full border border-[hsl(var(--border))] px-3 py-1 bg-white/60">Immediate</span>
-              </div>
-              <div class="flex items-center justify-between">
-                <div class="flex items-center gap-1 text-xs text-slate-500"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Verified UK employer</div>
-                <a href="#apply" class="btn btn-primary h-9 text-sm">Apply</a>
-              </div>
-            </article>
-            <!-- 2 -->
-            <article class="glass rounded-2xl p-5 hover:shadow-lg transition">
-              <h3 class="text-lg font-semibold mb-1">Hospitality Team Member</h3>
-              <div class="flex items-center gap-2 text-sm text-slate-600 mb-2"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V8l9-5 9 5v13H3Z"/></svg><span>Manchester City Hotel</span></div>
-              <div class="flex flex-wrap gap-x-4 gap-y-1 text-sm text-slate-600 mb-3"><span class="inline-flex items-center gap-1"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 6-9 12-9 12S3 16 3 10a9 9 0 1 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>Manchester</span><span class="inline-flex items-center gap-1"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 22v-2a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v2"/><circle cx="12" cy="7" r="4"/></svg>£22,000–£26,000 / year</span></div>
-              <div class="flex flex-wrap gap-2 mb-4"><span class="text-xs rounded-full border border-[hsl(var(--border))] px-3 py-1 bg-white/60">Part-time</span><span class="text-xs rounded-full border border-[hsl(var(--border))] px-3 py-1 bg-white/60">Shifts</span><span class="text-xs rounded-full border border-[hsl(var(--border))] px-3 py-1 bg-white/60">Training</span></div>
-              <div class="flex items-center justify-between"><div class="flex items-center gap-1 text-xs text-slate-500"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Verified UK employer</div><a href="#apply" class="btn btn-primary h-9 text-sm">Apply</a></div>
-            </article>
-            <!-- 3 -->
-            <article class="glass rounded-2xl p-5 hover:shadow-lg transition">
-              <h3 class="text-lg font-semibold mb-1">Warehouse Operative</h3>
-              <div class="flex items-center gap-2 text-sm text-slate-600 mb-2"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V8l9-5 9 5v13H3Z"/></svg><span>Birmingham Logistics Ltd</span></div>
-              <div class="flex flex-wrap gap-x-4 gap-y-1 text-sm text-slate-600 mb-3"><span class="inline-flex items-center gap-1"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 6-9 12-9 12S3 16 3 10a9 9 0 1 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>Birmingham</span><span class="inline-flex items-center gap-1"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 22v-2a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v2"/><circle cx="12" cy="7" r="4"/></svg>£24,000–£29,000 / year</span></div>
-              <div class="flex flex-wrap gap-2 mb-4"><span class="text-xs rounded-full border px-3 py-1 bg-white/60">Full-time</span><span class="text-xs rounded-full border px-3 py-1 bg-white/60">Overtime</span><span class="text-xs rounded-full border px-3 py-1 bg-white/60">Benefits</span></div>
-              <div class="flex items-center justify-between"><div class="flex items-center gap-1 text-xs text-slate-500"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Verified UK employer</div><a href="#apply" class="btn btn-primary h-9 text-sm">Apply</a></div>
-            </article>
-            <!-- 4 -->
-            <article class="glass rounded-2xl p-5 hover:shadow-lg transition">
-              <h3 class="text-lg font-semibold mb-1">Retail Assistant</h3>
-              <div class="flex items-center gap-2 text-sm text-slate-600 mb-2"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V8l9-5 9 5v13H3Z"/></svg><span>Leeds High Street</span></div>
-              <div class="flex flex-wrap gap-x-4 gap-y-1 text-sm text-slate-600 mb-3"><span class="inline-flex items-center gap-1"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 6-9 12-9 12S3 16 3 10a9 9 0 1 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>Leeds</span><span class="inline-flex items-center gap-1"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 22v-2a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v2"/><circle cx="12" cy="7" r="4"/></svg>£20,000–£24,000 / year</span></div>
-              <div class="flex flex-wrap gap-2 mb-4"><span class="text-xs rounded-full border px-3 py-1 bg-white/60">Part-time</span><span class="text-xs rounded-full border px-3 py-1 bg-white/60">Flexible</span><span class="text-xs rounded-full border px-3 py-1 bg-white/60">Weekend</span></div>
-              <div class="flex items-center justify-between"><div class="flex items-center gap-1 text-xs text-slate-500"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Verified UK employer</div><a href="#apply" class="btn btn-primary h-9 text-sm">Apply</a></div>
-            </article>
-            <!-- 5 -->
-            <article class="glass rounded-2xl p-5 hover:shadow-lg transition">
-              <h3 class="text-lg font-semibold mb-1">Construction Labourer</h3>
-              <div class="flex items-center gap-2 text-sm text-slate-600 mb-2"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V8l9-5 9 5v13H3Z"/></svg><span>Glasgow Build Co.</span></div>
-              <div class="flex flex-wrap gap-x-4 gap-y-1 text-sm text-slate-600 mb-3"><span class="inline-flex items-center gap-1"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 6-9 12-9 12S3 16 3 10a9 9 0 1 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>Glasgow</span><span class="inline-flex items-center gap-1"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 22v-2a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v2"/><circle cx="12" cy="7" r="4"/></svg>£26,000–£32,000 / year</span></div>
-              <div class="flex flex-wrap gap-2 mb-4"><span class="text-xs rounded-full border px-3 py-1 bg-white/60">Full-time</span><span class="text-xs rounded-full border px-3 py-1 bg-white/60">CSCS</span><span class="text-xs rounded-full border px-3 py-1 bg-white/60">Immediate</span></div>
-              <div class="flex items-center justify-between"><div class="flex items-center gap-1 text-xs text-slate-500"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Verified UK employer</div><a href="#apply" class="btn btn-primary h-9 text-sm">Apply</a></div>
-            </article>
-            <!-- 6 -->
-            <article class="glass rounded-2xl p-5 hover:shadow-lg transition">
-              <h3 class="text-lg font-semibold mb-1">IT Support Technician</h3>
-              <div class="flex items-center gap-2 text-sm text-slate-600 mb-2"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V8l9-5 9 5v13H3Z"/></svg><span>Bristol Tech Services</span></div>
-              <div class="flex flex-wrap gap-x-4 gap-y-1 text-sm text-slate-600 mb-3"><span class="inline-flex items-center gap-1"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 6-9 12-9 12S3 16 3 10a9 9 0 1 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>Bristol</span><span class="inline-flex items-center gap-1"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 22v-2a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v2"/><circle cx="12" cy="7" r="4"/></svg>��30,000–£36,000 / year</span></div>
-              <div class="flex flex-wrap gap-2 mb-4"><span class="text-xs rounded-full border px-3 py-1 bg-white/60">Full-time</span><span class="text-xs rounded-full border px-3 py-1 bg-white/60">Hybrid</span><span class="text-xs rounded-full border px-3 py-1 bg-white/60">Growth</span></div>
-              <div class="flex items-center justify-between"><div class="flex items-center gap-1 text-xs text-slate-500"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Verified UK employer</div><a href="#apply" class="btn btn-primary h-9 text-sm">Apply</a></div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- Secure Upload CTA -->
-      <section class="mt-16 md:mt-20" aria-labelledby="upload-heading">
-        <div class="container mx-auto max-w-[1200px] px-4">
-          <div class="glass rounded-3xl p-6 md:p-8">
-            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-              <div>
-                <h2 id="upload-heading" class="text-2xl font-bold">Secure, UK-ready document upload</h2>
-                <p class="mt-2 text-sm text-slate-600 max-w-xl">Upload your CV and ID with encryption and automatic checks. Files stay private and are only shared with verified employers.</p>
-                <ul class="mt-3 text-sm text-slate-700 grid grid-cols-1 sm:grid-cols-3 gap-2">
-                  <li class="inline-flex items-center gap-2"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 17v4m-7-4v4m14-4v4M3 17V8l9-5 9 5v9Z"/></svg> Encrypted transfer</li>
-                  <li class="inline-flex items-center gap-2"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> UK format checks</li>
-                  <li class="inline-flex items-center gap-2"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-7a4 4 0 0 0-4-4h-1a3 3 0 0 1-3-3V4"/></svg> Employer verified</li>
-                </ul>
-              </div>
-              <div class="w-full md:w-auto">
-                <label class="block rounded-2xl border-2 border-dashed border-slate-300 bg-white/70 p-6 text-center hover:border-slate-400 transition-colors cursor-pointer">
-                  <svg class="h-6 w-6 mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M17 8l-5-5-5 5"/><path d="M12 3v12"/></svg>
-                  <div class="mt-2 text-sm font-medium">Drag & drop files or click to upload</div>
-                  <input id="fileInput" type="file" class="sr-only" multiple />
-                </label>
-                <ul id="fileList" class="mt-3 text-sm text-slate-600 space-y-1 max-h-28 overflow-auto"></ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Compliance & Trust -->
-      <section class="mt-16 md:mt-20">
-        <div class="container mx-auto max-w-[1200px] px-4">
-          <h2 class="text-2xl font-bold">Compliance & trust</h2>
-          <div class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <div class="glass rounded-2xl p-4 flex items-center gap-3"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg> UK Data Privacy</div>
-            <div class="glass rounded-2xl p-4 flex items-center gap-3"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> GDPR</div>
-            <div class="glass rounded-2xl p-4 flex items-center gap-3"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M17 8l-5-5-5 5"/><path d="M12 3v12"/></svg> Secure Uploads</div>
-          </div>
-          <p class="mt-3 text-sm text-slate-600">All documents are verified and handled with strict privacy standards.</p>
-        </div>
-      </section>
-
-      <!-- FAQ -->
-      <section id="faq" class="mt-16 md:mt-20">
-        <div class="container mx-auto max-w-[1200px] px-4">
-          <div class="flex items-center gap-2 mb-4"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 1 1 5.83 1c0 2-3 2-3 4"/><path d="M12 17h.01"/></svg><h2 class="text-2xl font-bold">Frequently asked questions</h2></div>
-          <!-- Use details/summary for minimal-JS accordion -->
-          <div class="divide-y divide-[hsl(var(--border))]">
-            <details class="py-3 group">
-              <summary class="cursor-pointer text-base md:text-lg flex items-center justify-between">Do you support visa applications?<span class="ml-4">+</span></summary>
-              <p class="mt-2 text-slate-600">Yes. We work with UK-verified employers and can guide you on roles that provide visa sponsorship where available.</p>
-            </details>
-            <details class="py-3 group">
-              <summary class="cursor-pointer text-base md:text-lg flex items-center justify-between">How long does the process take?<span class="ml-4">+</span></summary>
-              <p class="mt-2 text-slate-600">On average, successful applicants secure a role within 7 days once documents are verified.</p>
-            </details>
-            <details class="py-3 group">
-              <summary class="cursor-pointer text-base md:text-lg flex items-center justify-between">What documents are required?<span class="ml-4">+</span></summary>
-              <p class="mt-2 text-slate-600">Typically a UK-ready CV, proof of identity, and right-to-work documents where applicable. You can upload securely from your phone.</p>
-            </details>
-            <details class="py-3 group">
-              <summary class="cursor-pointer text-base md:text-lg flex items-center justify-between">Are there any fees?<span class="ml-4">+</span></summary>
-              <p class="mt-2 text-slate-600">Applying is free for workers. Some roles may require compliance checks handled by the employer.</p>
-            </details>
-            <details class="py-3 group">
-              <summary class="cursor-pointer text-base md:text-lg flex items-center justify-between">Is my data protected?<span class="ml-4">+</span></summary>
-              <p class="mt-2 text-slate-600">Absolutely. We follow UK Data Privacy and GDPR requirements and use secure uploads.</p>
-            </details>
-            <details class="py-3 group">
-              <summary class="cursor-pointer text-base md:text-lg flex items-center justify-between">How can I get help?<span class="ml-4">+</span></summary>
-              <p class="mt-2 text-slate-600">Our support team is available 24/7 via chat and email. We also have a Help Centre.</p>
-            </details>
-          </div>
-        </div>
-      </section>
-
-      <!-- CTA Band -->
-      <section id="apply" class="mt-16 md:mt-20">
-        <div class="container mx-auto max-w-[1200px] px-4">
-          <div class="relative overflow-hidden rounded-3xl p-6 md:p-10 shadow-md" style="background:linear-gradient(90deg, hsl(var(--brand-pink)) 0%, hsl(var(--brand-blue)) 100%)">
-            <div class="absolute -top-24 -left-24 w-[360px] h-[360px] rounded-full bg-white/30 blur-3xl" aria-hidden></div>
-            <h2 class="text-2xl md:text-3xl font-bold text-slate-900">Start Your UK Application</h2>
-            <p class="mt-2 text-slate-800 max-w-2xl">Join thousands of workers placed across London, Manchester, Birmingham and more.</p>
-            <div class="mt-6"><a href="#" class="btn h-12 px-6 font-semibold bg-slate-900 text-white hover:opacity-90">Start Application</a></div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <!-- Footer -->
-    <footer id="contact" class="mt-16 border-t border-[hsl(var(--border))] bg-white/70 backdrop-blur">
-      <div class="container mx-auto max-w-[1200px] px-4 py-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
-        <div class="lg:col-span-2">
-          <a href="#" class="flex items-center gap-2" aria-label="WorkWise UK home">
-            <span class="h-8 w-8 rounded-xl" style="background:linear-gradient(135deg,hsl(var(--brand-pink)),hsl(var(--brand-blue)))"></span>
-            <span class="font-semibold tracking-tight text-slate-900 text-lg">WorkWise UK</span>
-          </a>
-          <p class="mt-3 text-sm text-slate-600 max-w-sm">Helping workers across the UK find trusted roles quickly with verified employers.</p>
-        </div>
-        <div>
-          <h4 class="font-semibold mb-3">Company</h4>
-          <ul class="space-y-2 text-sm text-slate-600">
-            <li><a href="#about" class="hover:text-slate-900">About</a></li>
-            <li><a href="#contact" class="hover:text-slate-900">Contact</a></li>
-            <li><a href="#careers" class="hover:text-slate-900">Careers</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="font-semibold mb-3">Support</h4>
-          <ul class="space-y-2 text-sm text-slate-600">
-            <li><a href="#help" class="hover:text-slate-900">Help Centre</a></li>
-            <li><a href="#faq" class="hover:text-slate-900">FAQ</a></li>
-            <li><a href="#docs" class="hover:text-slate-900">Guides</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="font-semibold mb-3">Legal</h4>
-          <ul class="space-y-2 text-sm text-slate-600">
-            <li><a href="#terms" class="hover:text-slate-900">Terms</a></li>
-            <li><a href="#privacy" class="hover:text-slate-900">Privacy</a></li>
-            <li><a href="#cookies" class="hover:text-slate-900">Cookies</a></li>
-          </ul>
-        </div>
-        <div class="lg:col-span-1 sm:col-span-2">
-          <h4 class="font-semibold mb-3">Newsletter</h4>
-          <form id="newsletterForm" class="flex gap-2">
-            <input id="emailInput" type="email" required placeholder="Enter your email" class="w-full h-11 rounded-full px-4 border border-[hsl(var(--border))] bg-white/70 focus-ring" />
-            <button type="submit" class="h-11 px-5 rounded-full bg-slate-900 text-white hover:opacity-90">Subscribe</button>
-          </form>
+          </button>
         </div>
       </div>
-      <div class="border-t border-[hsl(var(--border))]">
-        <div class="container mx-auto max-w-[1200px] px-4 py-6 text-xs text-slate-500 flex flex-col sm:flex-row items-center justify-between gap-2">
-          <p>© <span id="year"></span> WorkWise UK. All rights reserved.</p>
-          <div class="flex gap-4">
-            <a href="#privacy" class="hover:text-slate-700">Privacy</a>
-            <a href="#terms" class="hover:text-slate-700">Terms</a>
-          </div>
+    </section>
+
+    <!-- video section end -->
+
+
+    <!-- why choose us section start -->
+
+    <section id="why-choose-us" class="container py-16 md:py-24">
+    <div class="text-center mb-12" data-aos="fade-up">
+              <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-center" data-aos="fade-up">Why choose <span class="text-primary"> Us</span></h2>
+
+        <p class="mt-4 text-slate-600 max-w-2xl mx-auto">We combine deep technical expertise with pragmatic product thinking to deliver outcomes—not just output.</p>
+    </div>
+
+    <div class="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="bg-white p-8 rounded-2xl shadow-xl border border-gray-200 transition-all duration-300 hover:scale-105 hover:shadow-2xl" data-aos="fade-up" data-aos-delay="100">
+            <div class="w-12 h-12 rounded-lg bg-red-100 text-primary grid place-items-center mb-4">
+                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m12 15 5-5"/><path d="m12 15-5-5"/><path d="M20 7a9 9 0 1 1-16 0 9 9 0 0 1 16 0"/>
+                </svg>
+            </div>
+            <h3 class="font-bold text-xl text-slate-800">Proven Quality</h3>
+            <p class="mt-2 text-slate-600 text-sm">Battle-tested patterns, robust architecture, and peer-reviewed code ensure the highest quality standards.</p>
         </div>
-      </div>
-    </footer>
+
+        <div class="bg-white p-8 rounded-2xl shadow-xl border border-gray-200 transition-all duration-300 hover:scale-105 hover:shadow-2xl" data-aos="fade-up" data-aos-delay="200">
+            <div class="w-12 h-12 rounded-lg bg-blue-100 text-blue-500 grid place-items-center mb-4">
+                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M10 2v6h6"/><path d="M2 12a10 10 0 1 0 10-10"/>
+                </svg>
+            </div>
+            <h3 class="font-bold text-xl text-slate-800">On-time Delivery</h3>
+            <p class="mt-2 text-slate-600 text-sm">Our agile methodology, weekly milestones, and transparent reporting guarantee project completion on time.</p>
+        </div>
+
+        <div class="bg-white p-8 rounded-2xl shadow-xl border border-gray-200 transition-all duration-300 hover:scale-105 hover:shadow-2xl" data-aos="fade-up" data-aos-delay="300">
+            <div class="w-12 h-12 rounded-lg bg-green-100 text-green-500 grid place-items-center mb-4">
+                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 3l18 18"/><path d="M3 21V3h18"/>
+                </svg>
+            </div>
+            <h3 class="font-bold text-xl text-slate-800">UK Timezone</h3>
+            <p class="mt-2 text-slate-600 text-sm">Work with a local team, aligned with your schedule, ensuring real-time communication and seamless collaboration.</p>
+        </div>
+
+        <div class="bg-white p-8 rounded-2xl shadow-xl border border-gray-200 transition-all duration-300 hover:scale-105 hover:shadow-2xl" data-aos="fade-up" data-aos-delay="400">
+            <div class="w-12 h-12 rounded-lg bg-yellow-100 text-yellow-500 grid place-items-center mb-4">
+                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 20v-6"/><path d="M18 20V8"/><path d="M6 20V14"/>
+                </svg>
+            </div>
+            <h3 class="font-bold text-xl text-slate-800">Collaborative</h3>
+            <p class="mt-2 text-slate-600 text-sm">We integrate with your team, working as a true partner to understand your vision and achieve shared goals.</p>
+        </div>
+    </div>
+    </section>
+
+    <!-- why choose us section end -->
+
+
+    <!-- work process start -->
+
+    <section id="process" class="border-t bg-slate-50/70 py-16 md:py-24">
+    <div class="container">
+        <div class="text-center mb-16" data-aos="fade-up">
+        
+              <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-center" data-aos="fade-up">How It <span class="text-primary"> Work</span></h2>
+
+            <p class="mt-4 text-lg text-slate-600 max-w-3xl mx-auto">Our systematic approach ensures every project is a success, from initial concept to final launch and beyond.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative">
+          
+
+            <div class="bg-white p-8 rounded-3xl shadow-xl border border-gray-200 relative z-10 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:bg-red-50" data-aos="fade-up">
+                <div class="w-16 h-16 rounded-full bg-red-100 text-red-500 grid place-items-center absolute -top-8 -left-8">
+                    <span class="font-bold">01</span>
+                </div>
+                <div class="p-2 rounded-lg bg-red-50 inline-block absolute top-8 left-8">
+                    <svg class="w-6 h-6 text-red-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/><line x1="10" y1="9" x2="14" y2="9"/>
+                    </svg>
+                </div>
+                <h3 class="font-bold text-xl text-slate-800 mt-16">Seamless Document Upload</h3>
+                <p class="mt-2 text-sm text-slate-600">Securely upload and manage all necessary documents with a seamless interface.</p>
+                <div class="text-red-500 font-semibold text-sm mt-4">Timeline: 1-2 Minutes</div>
+            </div>
+
+            <div class="bg-white p-8 rounded-3xl shadow-xl border border-gray-200 relative z-10 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:bg-blue-50" data-aos="fade-up" data-aos-delay="200">
+                <div class="w-16 h-16 rounded-full bg-blue-100 text-blue-500 grid place-items-center absolute -top-8 -left-8">
+                    <span class="font-bold">02</span>
+                </div>
+                <div class="p-2 rounded-lg bg-blue-50 inline-block absolute top-8 left-8">
+                    <svg class="w-6 h-6 text-blue-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="M5 8l7 4 7-4"/>
+                    </svg>
+                </div>
+                <h3 class="font-bold text-xl text-slate-800 mt-16">Advanced AI Verification</h3>
+                <p class="mt-2 text-sm text-slate-600">Our AI-powered system verifies all documents for accuracy and authenticity.</p>
+                <div class="text-blue-500 font-semibold text-sm mt-4">Timeline: 1-2 Minutes</div>
+            </div>
+
+            <div class="bg-white p-8 rounded-3xl shadow-xl border border-gray-200 relative z-10 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:bg-yellow-50" data-aos="fade-up" data-aos-delay="400">
+                <div class="w-16 h-16 rounded-full bg-yellow-100 text-yellow-500 grid place-items-center absolute -top-8 -left-8">
+                    <span class="font-bold">03</span>
+                </div>
+                <div class="p-2 rounded-lg bg-yellow-50 inline-block absolute top-8 left-8">
+                    <svg class="w-6 h-6 text-yellow-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="10" r="8"/><path d="M12 21.7c-3.7 0-6.7-3.2-6.7-7.2s3-7.2 6.7-7.2c3.7 0 6.7 3.2 6.7 7.2s-3 7.2-6.7 7.2z"/><path d="M12 22v-1"/><path d="M12 18a4 4 0 0 1-4-4"/><path d="M12 18a4 4 0 0 0 4-4"/>
+                    </svg>
+                </div>
+                <h3 class="font-bold text-xl text-slate-800 mt-16">Biometric Authentication</h3>
+                <p class="mt-2 text-sm text-slate-600">Enhance security with fast and secure biometric verification.</p>
+                <div class="text-yellow-500 font-semibold text-sm mt-4">Timeline: 1-2 Minutes</div>
+            </div>
+
+            <div class="bg-white p-8 rounded-3xl shadow-xl border border-gray-200 relative z-10 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:bg-green-50" data-aos="fade-up" data-aos-delay="600">
+                <div class="w-16 h-16 rounded-full bg-green-100 text-green-500 grid place-items-center absolute -top-8 -left-8">
+                    <span class="font-bold">04</span>
+                </div>
+                <div class="p-2 rounded-lg bg-green-50 inline-block absolute top-8 left-8">
+                    <svg class="w-6 h-6 text-green-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="M5 8l7 4 7-4"/>
+                    </svg>
+                </div>
+                <h3 class="font-bold text-xl text-slate-800 mt-16">Proactive Compliance Management</h3>
+                <p class="mt-2 text-sm text-slate-600">Stay ahead of regulations with our automated compliance checks and reports.</p>
+                <div class="text-green-500 font-semibold text-sm mt-4">Timeline: 1-2 Minutes</div>
+            </div>
+
+            <div class="bg-white p-8 rounded-3xl shadow-xl border border-gray-200 relative z-10 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:bg-purple-50" data-aos="fade-up" data-aos-delay="800">
+                <div class="w-16 h-16 rounded-full bg-purple-100 text-purple-500 grid place-items-center absolute -top-8 -left-8">
+                    <span class="font-bold">05</span>
+                </div>
+                <div class="p-2 rounded-lg bg-purple-50 inline-block absolute top-8 left-8">
+                    <svg class="w-6 h-6 text-purple-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="M5 8l7 4 7-4"/>
+                    </svg>
+                </div>
+                <h3 class="font-bold text-xl text-slate-800 mt-16">Data Enrichment</h3>
+                <p class="mt-2 text-sm text-slate-600">Automatically enhance and enrich your data for better insights and decision-making.</p>
+                <div class="text-purple-500 font-semibold text-sm mt-4">Timeline: 1-2 Minutes</div>
+            </div>
+
+            <div class="bg-white p-8 rounded-3xl shadow-xl border border-gray-200 relative z-10 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:bg-cyan-50" data-aos="fade-up" data-aos-delay="1000">
+                <div class="w-16 h-16 rounded-full bg-cyan-100 text-cyan-500 grid place-items-center absolute -top-8 -left-8">
+                    <span class="font-bold">06</span>
+                </div>
+                <div class="p-2 rounded-lg bg-cyan-50 inline-block absolute top-8 left-8">
+                    <svg class="w-6 h-6 text-cyan-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/>
+                    </svg>
+                </div>
+                <h3 class="font-bold text-xl text-slate-800 mt-16">Real-time Monitoring</h3>
+                <p class="mt-2 text-sm text-slate-600">Continuously monitor system performance and data integrity with live dashboards.</p>
+                <div class="text-cyan-500 font-semibold text-sm mt-4">Timeline: 1-2 Minutes</div>
+            </div>
+        </div>
+    </div>
+    </section>
+    <!-- work process end -->
+
+    <!-- compare section start -->
+
+    <section id="compare" class="container py-16 md:py-24">
+    <div class="text-center mb-16" data-aos="fade-up">
+              <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-center" data-aos="fade-up">How We Compare  <span class="text-primary"> to Others</span></h2>
+
+        <p class="mt-4 text-lg text-slate-600 max-w-3xl mx-auto">See how Rongdhanu Software stands out from the competition with our superior features and service.</p>
+    </div>
+
+    <div class="overflow-x-auto rounded-3xl shadow-xl border border-gray-200">
+        <table class="w-full text-left text-slate-600">
+            <thead class="bg-gray-100 text-slate-800 uppercase text-sm font-bold">
+                <tr>
+                    <th scope="col" class="px-6 py-4">Features</th>
+                    <th scope="col" class="px-6 py-4 text-center">Rongdhanu Software</th>
+                    <th scope="col" class="px-6 py-4 text-center">Typical Agency</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="border-b transition-colors hover:bg-gray-50">
+                    <th scope="row" class="px-6 py-4 font-semibold text-slate-800">Agile Process & Demos</th>
+                    <td class="px-6 py-4 text-center">
+                        <svg class="w-6 h-6 text-green-500 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                        <svg class="w-6 h-6 text-red-500 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                    </td>
+                </tr>
+                <tr class="border-b transition-colors hover:bg-gray-50">
+                    <th scope="row" class="px-6 py-4 font-semibold text-slate-800">Dedicated UK-based Team</th>
+                    <td class="px-6 py-4 text-center">
+                        <svg class="w-6 h-6 text-green-500 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                        <svg class="w-6 h-6 text-red-500 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                    </td>
+                </tr>
+                <tr class="border-b transition-colors hover:bg-gray-50">
+                    <th scope="row" class="px-6 py-4 font-semibold text-slate-800">Enterprise-grade Security</th>
+                    <td class="px-6 py-4 text-center">
+                        <svg class="w-6 h-6 text-green-500 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                        <svg class="w-6 h-6 text-red-500 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                    </td>
+                </tr>
+                <tr class="border-b transition-colors hover:bg-gray-50">
+                    <th scope="row" class="px-6 py-4 font-semibold text-slate-800">Clear & Transparent Pricing</th>
+                    <td class="px-6 py-4 text-center">
+                        <svg class="w-6 h-6 text-green-500 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                        <svg class="w-6 h-6 text-red-500 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                    </td>
+                </tr>
+                <tr class="transition-colors hover:bg-gray-50">
+                    <th scope="row" class="px-6 py-4 font-semibold text-slate-800">Long-term Maintenance</th>
+                    <td class="px-6 py-4 text-center">
+                        <svg class="w-6 h-6 text-green-500 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                        <svg class="w-6 h-6 text-red-500 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+    <!-- compare section end -->
+
+
+    
+    <!-- pricing section start -->
+
+  <section id="pricing" class="container py-16 md:py-24">
+    <div class="text-center mb-16" data-aos="fade-up">
+              <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-center" data-aos="fade-up">Simple, transparent  <span class="text-primary"> pricing</span></h2>
+
+        <p class="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">Flexible engagement models designed to fit your stage, from startups to large enterprises.</p>
+    </div>
+
+    <div class="mt-10 grid gap-8 md:grid-cols-3">
+        <div class="relative bg-red-50 p-8 rounded-3xl shadow-lg border border-red-200 flex flex-col transition-all duration-300 hover:shadow-2xl" data-aos="fade-up" data-aos-delay="100">
+            <h3 class="font-bold text-2xl text-slate-800">Starter</h3>
+            <p class="mt-2 text-sm text-slate-500">Ideal for small teams and new projects.</p>
+            <div class="mt-6">
+                <span class="text-4xl font-extrabold text-slate-800">£4,900</span>
+                <span class="text-sm text-slate-500">/month</span>
+            </div>
+            <ul class="mt-8 space-y-4 text-slate-600 flex-grow">
+                <li class="flex items-center gap-3">
+                    <svg class="w-5 h-5 text-green-500 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> UX audit & strategy
+                </li>
+                <li class="flex items-center gap-3">
+                    <svg class="w-5 h-5 text-green-500 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> 1 dedicated engineering squad
+                </li>
+                <li class="flex items-center gap-3">
+                    <svg class="w-5 h-5 text-green-500 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Weekly progress demos
+                </li>
+            </ul>
+            <a href="#cta" class="mt-8 inline-flex items-center justify-center h-12 px-6 rounded-lg text-lg font-semibold text-white bg-primary hover:bg-red-700 transition-all duration-300 shadow-lg shadow-red-200">Choose Starter</a>
+        </div>
+
+        <div class="relative bg-blue-50 p-8 rounded-3xl shadow-2xl border-4 border-blue-200 flex flex-col transition-all duration-300 hover:shadow-3xl" data-aos="fade-up" data-aos-delay="200">
+            <span class="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-primary text-white text-xs font-semibold px-4 py-1.5 shadow-md">Most Popular</span>
+            <h3 class="font-bold text-2xl text-slate-800 mt-2">Growth</h3>
+            <p class="mt-2 text-sm text-slate-500">Perfect for scaling your business.</p>
+            <div class="mt-6">
+                <span class="text-4xl font-extrabold text-slate-800">£9,900</span>
+                <span class="text-sm text-slate-500">/month</span>
+            </div>
+            <ul class="mt-8 space-y-4 text-slate-600 flex-grow">
+                <li class="flex items-center gap-3">
+                    <svg class="w-5 h-5 text-green-500 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Product + engineering team
+                </li>
+                <li class="flex items-center gap-3">
+                    <svg class="w-5 h-5 text-green-500 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> 2 dedicated engineering squads
+                </li>
+                <li class="flex items-center gap-3">
+                    <svg class="w-5 h-5 text-green-500 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> SLA support & maintenance
+                </li>
+            </ul>
+            <a href="#cta" class="mt-8 inline-flex items-center justify-center h-12 px-6 rounded-lg text-lg font-semibold text-white bg-primary hover:bg-red-700 transition-all duration-300 shadow-lg shadow-red-200">Choose Growth</a>
+        </div>
+
+        <div class="relative bg-green-50 p-8 rounded-3xl shadow-lg border border-green-200 flex flex-col transition-all duration-300 hover:shadow-2xl" data-aos="fade-up" data-aos-delay="300">
+            <h3 class="font-bold text-2xl text-slate-800">Enterprise</h3>
+            <p class="mt-2 text-sm text-slate-500">For large-scale, custom requirements.</p>
+            <div class="mt-6">
+                <span class="text-4xl font-extrabold text-slate-800">Custom</span>
+            </div>
+            <ul class="mt-8 space-y-4 text-slate-600 flex-grow">
+                <li class="flex items-center gap-3">
+                    <svg class="w-5 h-5 text-green-500 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Dedicated project management
+                </li>
+                <li class="flex items-center gap-3">
+                    <svg class="w-5 h-5 text-green-500 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Advanced security reviews
+                </li>
+                <li class="flex items-center gap-3">
+                    <svg class="w-5 h-5 text-green-500 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> SRE and 24/7 support
+                </li>
+            </ul>
+            <a href="#cta" class="mt-8 inline-flex items-center justify-center h-12 px-6 rounded-lg text-lg font-semibold text-white bg-primary hover:bg-red-700 transition-all duration-300 shadow-lg shadow-red-200">Contact Sales</a>
+        </div>
+    </div>
+</section>
+    <!-- pricing section end -->
+
+
+
+    <!-- blog section start  -->
+
+    <section id="blog" class="container py-16 md:py-24 bg-white">
+    <div class="text-center mb-16" data-aos="fade-up">
+              <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-center" data-aos="fade-up">Our latest articles <span class="text-primary"> & insights</span></h2>
+
+        <p class="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">Stay up-to-date with our expert thoughts on technology, design, and business.</p>
+    </div>
+
+    <div class="grid gap-12 lg:grid-cols-3">
+        <article class="relative flex flex-col h-full rounded-2xl shadow-xl border border-gray-200 overflow-hidden group transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl" data-aos="fade-up" data-aos-delay="100">
+            <a href="#" class="block flex-shrink-0">
+                <img class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105" src="https://images.unsplash.com/photo-1517694712202-14dd953bb77b?q=80&w=2070&auto=format&fit=crop" alt="The Future of AI in Software Development">
+            </a>
+            <div class="p-6 flex flex-col flex-grow">
+                <h3 class="font-bold text-2xl text-slate-800 group-hover:text-primary transition-colors duration-300">The Future of AI in Software Development</h3>
+                <p class="mt-3 text-slate-600 flex-grow">Explore how artificial intelligence is reshaping the landscape of modern software engineering.</p>
+                <div class="mt-6 pt-4 border-t border-gray-200 flex items-center justify-between">
+                    <div class="text-sm text-slate-500">
+                        <span>By John Doe</span>
+                        <span class="block text-xs">October 26, 2023</span>
+                    </div>
+                    <a href="#" class="inline-flex items-center gap-2 text-primary font-semibold text-sm hover:underline transition-colors duration-300">
+                        Read more 
+                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </article>
+
+        <article class="relative flex flex-col h-full rounded-2xl shadow-xl border border-gray-200 overflow-hidden group transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl" data-aos="fade-up" data-aos-delay="200">
+            <a href="#" class="block flex-shrink-0">
+                <img class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105" src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop" alt="Top 5 Trends in Web Development for 2024">
+            </a>
+            <div class="p-6 flex flex-col flex-grow">
+                <h3 class="font-bold text-2xl text-slate-800 group-hover:text-primary transition-colors duration-300">Top 5 Trends in Web Development for 2024</h3>
+                <p class="mt-3 text-slate-600 flex-grow">Stay ahead of the curve with our expert predictions on the most impactful web development trends.</p>
+                <div class="mt-6 pt-4 border-t border-gray-200 flex items-center justify-between">
+                    <div class="text-sm text-slate-500">
+                        <span>By Jane Smith</span>
+                        <span class="block text-xs">September 15, 2023</span>
+                    </div>
+                    <a href="#" class="inline-flex items-center gap-2 text-primary font-semibold text-sm hover:underline transition-colors duration-300">
+                        Read more 
+                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </article>
+
+        <article class="relative flex flex-col h-full rounded-2xl shadow-xl border border-gray-200 overflow-hidden group transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl" data-aos="fade-up" data-aos-delay="300">
+            <a href="#" class="block flex-shrink-0">
+                <img class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105" src="https://images.unsplash.com/photo-1498050108023-c5249f4cd085?q=80&w=2070&auto=format&fit=crop" alt="Optimizing Performance: A Developer's Guide">
+            </a>
+            <div class="p-6 flex flex-col flex-grow">
+                <h3 class="font-bold text-2xl text-slate-800 group-hover:text-primary transition-colors duration-300">Optimizing Performance: A Developer's Guide</h3>
+                <p class="mt-3 text-slate-600 flex-grow">Learn practical tips and tricks to boost your application's speed and efficiency.</p>
+                <div class="mt-6 pt-4 border-t border-gray-200 flex items-center justify-between">
+                    <div class="text-sm text-slate-500">
+                        <span>By Robert Brown</span>
+                        <span class="block text-xs">August 01, 2023</span>
+                    </div>
+                    <a href="#" class="inline-flex items-center gap-2 text-primary font-semibold text-sm hover:underline transition-colors duration-300">
+                        Read more 
+                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </article>
+    </div>
+</section>
+    <!-- blog section end  -->
+
+    <!-- faq section start  -->
+
+    <section id="faq" class="container py-16 md:py-24">
+    <div class="text-center mb-16" data-aos="fade-up">
+              <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-center" data-aos="fade-up">Frequently asked <span class="text-primary">questions</span></h2>
+
+        <p class="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">Find answers to the most common questions about our services.</p>
+    </div>
+
+    <div class="mx-auto mt-8 max-w-5xl divide-y divide-gray-200 rounded-2xl border border-gray-200 shadow-xl" data-aos="fade-up" data-aos-delay="200">
+        <details class="group py-6 px-8 transition-colors duration-300 hover:bg-gray-50">
+            <summary class="flex cursor-pointer list-none items-center justify-between font-bold text-slate-800">
+                <span>Where are you based?</span>
+                <span class="ml-4 w-6 h-6 rounded-full bg-gray-100 grid place-items-center text-sm text-slate-500 group-open:rotate-45 transition-transform duration-300 transform">
+                    +
+                </span>
+            </summary>
+            <p class="mt-4 text-slate-600 leading-relaxed">
+                Our core team is in London, UK. We work with clients across Europe and North America, and our flexible approach allows us to collaborate effectively regardless of timezone.
+            </p>
+        </details>
+        <details class="group py-6 px-8 transition-colors duration-300 hover:bg-gray-50">
+            <summary class="flex cursor-pointer list-none items-center justify-between font-bold text-slate-800">
+                <span>What technology stacks do you use?</span>
+                <span class="ml-4 w-6 h-6 rounded-full bg-gray-100 grid place-items-center text-sm text-slate-500 group-open:rotate-45 transition-transform duration-300 transform">
+                    +
+                </span>
+            </summary>
+            <p class="mt-4 text-slate-600 leading-relaxed">
+                We specialize in modern, robust technologies such as TypeScript, React, Node.js, and cloud-native architectures (AWS, GCP). This ensures your product is scalable, secure, and future-proof.
+            </p>
+        </details>
+        <details class="group py-6 px-8 transition-colors duration-300 hover:bg-gray-50">
+            <summary class="flex cursor-pointer list-none items-center justify-between font-bold text-slate-800">
+                <span>How do your engagements work?</span>
+                <span class="ml-4 w-6 h-6 rounded-full bg-gray-100 grid place-items-center text-sm text-slate-500 group-open:rotate-45 transition-transform duration-300 transform">
+                    +
+                </span>
+            </summary>
+            <p class="mt-4 text-slate-600 leading-relaxed">
+                We work in monthly sprints with clear milestones and fixed outcomes. This provides flexibility while ensuring predictable progress. We hold weekly demos to keep you fully informed.
+            </p>
+        </details>
+        <details class="group py-6 px-8 transition-colors duration-300 hover:bg-gray-50">
+            <summary class="flex cursor-pointer list-none items-center justify-between font-bold text-slate-800">
+                <span>Do you offer post-launch support?</span>
+                <span class="ml-4 w-6 h-6 rounded-full bg-gray-100 grid place-items-center text-sm text-slate-500 group-open:rotate-45 transition-transform duration-300 transform">
+                    +
+                </span>
+            </summary>
+            <p class="mt-4 text-slate-600 leading-relaxed">
+                Yes, we offer comprehensive post-launch support, including monitoring, maintenance, and ongoing optimization to ensure your product continues to perform and grow.
+            </p>
+        </details>
+    </div>
+    </section>
+    <!-- faq section end  -->
+
+    
+<section id="cta" class="bg-[#FEF2F2] py-12 md:py-12 max-w-5xl mx-auto rounded-3xl mb-10">
+    <div class="container text-center" data-aos="fade-up">
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-slate-800 ">
+            Ready to start your next project?
+        </h2>
+        <p class="mt-4 text-lg text-slate-600 mx-auto">
+            Contact us today for a free consultation and let's build something amazing together.
+        </p>
+        <a href="#contact" class="mt-10 inline-flex items-center gap-2 h-12 px-6 rounded-lg text-lg font-semibold text-white bg-primary hover:bg-red-700 transition-all duration-300 shadow-xl shadow-red-200">
+            Start a Project 
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+            </svg>
+        </a>
+    </div>
+</section>
+
+
+
+
+
+<footer class="bg-gray-900 text-white py-16">
+    <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div class="space-y-4">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-lg bg-primary"></div>
+                <span class="font-bold text-2xl tracking-tight">Rongdhanu Software</span>
+            </div>
+            <p class="text-sm text-gray-400 max-w-xs">
+                Premium UK-based software consultancy crafting modern, scalable products for ambitious teams.
+            </p>
+            <div class="flex items-center gap-4">
+                <a href="#" aria-label="Twitter" class="text-gray-400 hover:text-white transition-colors duration-300">
+                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53A4.48 4.48 0 0 0 12 7v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+                </a>
+                <a href="#" aria-label="LinkedIn" class="text-gray-400 hover:text-white transition-colors duration-300">
+                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                </a>
+                <a href="#" aria-label="GitHub" class="text-gray-400 hover:text-white transition-colors duration-300">
+                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12a10 10 0 0 0 6.839 9.488c.5.092.682-.217.682-.483 0-.237-.009-.868-.014-1.703-2.782.604-3.369-1.34-3.369-1.34-.454-1.153-1.11-1.461-1.11-1.461-.908-.62.069-.607.069-.607 1.003.071 1.531 1.03 1.531 1.03.892 1.53 2.341 1.088 2.91.833.091-.647.35-1.088.636-1.339-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.272.098-2.65 0 0 .84-.269 2.75 1.025A9.56 9.56 0 0 1 12 6.844a9.56 9.56 0 0 1 2.5.336c1.91-1.294 2.75-1.025 2.75-1.025.544 1.378.201 2.397.099 2.65.64.699 1.028 1.592 1.028 2.683 0 3.842-2.337 4.687-4.563 4.937.36.31.679.92.679 1.855 0 1.338-.012 2.417-.012 2.744 0 .268.18.58.688.481A10.001 10.001 0 0 0 22 12c0-5.523-4.477-10-10-10z"/></svg>
+                </a>
+            </div>
+        </div>
+
+        <div class="space-y-4">
+            <h4 class="font-bold text-lg text-white">Company</h4>
+            <ul class="space-y-2 text-sm text-gray-400">
+                <li><a href="#about" class="hover:text-primary transition-colors duration-300">About Us</a></li>
+                <li><a href="#careers" class="hover:text-primary transition-colors duration-300">Careers</a></li>
+                <li><a href="#press" class="hover:text-primary transition-colors duration-300">Press</a></li>
+                <li><a href="#contact" class="hover:text-primary transition-colors duration-300">Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="space-y-4">
+            <h4 class="font-bold text-lg text-white">Products</h4>
+            <ul class="space-y-2 text-sm text-gray-400">
+                <li><a href="#features" class="hover:text-primary transition-colors duration-300">Features</a></li>
+                <li><a href="#pricing" class="hover:text-primary transition-colors duration-300">Pricing</a></li>
+                <li><a href="#security" class="hover:text-primary transition-colors duration-300">Security</a></li>
+                <li><a href="#status" class="hover:text-primary transition-colors duration-300">Status</a></li>
+            </ul>
+        </div>
+
+        <div class="space-y-4">
+            <h4 class="font-bold text-lg text-white">Resources</h4>
+            <ul class="space-y-2 text-sm text-gray-400">
+                <li><a href="#blog" class="hover:text-primary transition-colors duration-300">Blog</a></li>
+                <li><a href="#docs" class="hover:text-primary transition-colors duration-300">Documentation</a></li>
+                <li><a href="#guides" class="hover:text-primary transition-colors duration-300">Guides</a></li>
+                <li><a href="#support" class="hover:text-primary transition-colors duration-300">Support</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container mx-auto px-4 mt-12 pt-8 border-t border-gray-700 text-sm text-gray-400 md:flex md:items-center md:justify-between">
+        <p>&copy; 2025 Rongdhanu Software Ltd. All rights reserved.</p>
+        <div class="flex items-center gap-4 mt-4 md:mt-0">
+            <a href="#privacy" class="hover:text-primary transition-colors duration-300">Privacy Policy</a>
+            <a href="#terms" class="hover:text-primary transition-colors duration-300">Terms of Service</a>
+        </div>
+    </div>
+</footer>
 
     <script>
-      // Mobile drawer
-      const menuBtn = document.getElementById('menuBtn');
-      const mobileDrawer = document.getElementById('mobileDrawer');
-      const closeDrawer = document.getElementById('closeDrawer');
-      menuBtn?.addEventListener('click',()=>mobileDrawer.classList.remove('hidden'));
-      closeDrawer?.addEventListener('click',()=>mobileDrawer.classList.add('hidden'));
-      mobileDrawer?.addEventListener('click',(e)=>{ if(e.target===mobileDrawer){ mobileDrawer.classList.add('hidden'); } });
-
-      // Year
-      document.getElementById('year').textContent = new Date().getFullYear();
-
-      // Newsletter minimal validation
-      document.getElementById('newsletterForm')?.addEventListener('submit',function(e){
-        e.preventDefault();
-        const email = document.getElementById('emailInput').value.trim();
-        if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return alert('Please enter a valid email address');
-        alert('Thanks for subscribing!');
-        this.reset();
+      // Auto slide horizontally for elements with .auto-slider
+      document.querySelectorAll('.auto-slider').forEach((el) => {
+        let idx = 0;
+        const children = Array.from(el.children);
+        const tick = () => {
+          idx = (idx + 1) % children.length;
+          el.scrollTo({ left: children[idx].offsetLeft - 16, behavior: 'smooth' });
+        };
+        setInterval(tick, 4000);
       });
 
-      // Category search filter
-      const search = document.getElementById('catSearch');
-      const chips = Array.from(document.querySelectorAll('#catChips > a'));
-      search?.addEventListener('input',()=>{
-        const q = search.value.trim().toLowerCase();
-        chips.forEach(c=>{ c.style.display = c.textContent.toLowerCase().includes(q)?'inline-flex':'none'; });
-      });
-
-      // File uploads list
-      const fileInput = document.getElementById('fileInput');
-      const fileList = document.getElementById('fileList');
-      fileInput?.addEventListener('change',()=>{
-        fileList.innerHTML='';
-        Array.from(fileInput.files||[]).forEach(f=>{
-          const li=document.createElement('li');
-          li.textContent=f.name; li.className='truncate';
-          fileList.appendChild(li);
+      // Video overlay trigger
+      document.querySelectorAll('.video-trigger').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const src = btn.getAttribute('data-video');
+          const wrapper = document.createElement('div');
+          wrapper.className = 'aspect-video w-full overflow-hidden rounded-2xl';
+          wrapper.innerHTML = `<iframe class="w-full h-full" src="${src}" title="Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
+          btn.replaceWith(wrapper);
         });
       });
 
-      // Generate logos
-      const row = document.getElementById('logoRow');
-      const row2 = document.getElementById('logoRow2');
-      const tpl = document.getElementById('logoTpl');
-      if(row && row2 && tpl){ for(let i=1;i<=8;i++){ const n=tpl.content.cloneNode(true); n.querySelector('span.text-sm').textContent = 'UK Employer '+i; row.appendChild(n); }
-        for(let i=9;i<=16;i++){ const n=tpl.content.cloneNode(true); n.querySelector('span.text-sm').textContent = 'UK Employer '+i; row2.appendChild(n); } }
+      // Footer year
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      // about 
+
+      document.addEventListener('DOMContentLoaded', () => {
+    const slider = document.getElementById('image-slider');
+    const prevBtn = document.getElementById('prev-slide');
+    const nextBtn = document.getElementById('next-slide');
+    const slides = Array.from(slider.children);
+    let slideIndex = 0;
+    let autoSlideInterval;
+
+    const updateSlider = () => {
+        const slideWidth = slides[0].clientWidth;
+        slider.style.transform = `translateX(-${slideIndex * slideWidth}px)`;
+    };
+
+    const nextSlide = () => {
+        slideIndex = (slideIndex + 1) % slides.length;
+        updateSlider();
+    };
+
+    const prevSlide = () => {
+        slideIndex = (slideIndex - 1 + slides.length) % slides.length;
+        updateSlider();
+    };
+
+    const startAutoSlide = () => {
+        autoSlideInterval = setInterval(nextSlide, 4000); // 4 সেকেন্ড পর পর স্লাইড পরিবর্তন
+    };
+
+    const stopAutoSlide = () => {
+        clearInterval(autoSlideInterval);
+    };
+
+    nextBtn.addEventListener('click', () => {
+        nextSlide();
+        stopAutoSlide();
+        startAutoSlide();
+    });
+
+    prevBtn.addEventListener('click', () => {
+        prevSlide();
+        stopAutoSlide();
+        startAutoSlide();
+    });
+
+    // স্লাইডারের আকার পরিবর্তন হলে আপডেট করুন
+    window.addEventListener('resize', updateSlider);
+
+    // প্রাথমিক লোডে স্লাইডার শুরু করুন
+    startAutoSlide();
+});
+    </script>
+    
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        once: true,
+      });
     </script>
   </body>
 </html>
