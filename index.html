@@ -1,0 +1,588 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Rongdhanu Software — UK-based Premium Software Company</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Merriweather:wght@700;800;900&display=swap" rel="stylesheet" />
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          container: { center: true, padding: "2rem" },
+          extend: {
+            colors: { primary: "#ef4444" },
+            fontFamily: {
+              heading: ["Merriweather", "serif"],
+              body: ["Lora", "serif"],
+            },
+            borderRadius: { xl: "1rem" },
+          },
+        },
+      };
+    </script>
+    <style type="text/tailwindcss">
+      @layer base {
+        html { @apply font-body text-slate-900 bg-white; }
+        h1,h2,h3,h4,h5,h6 { @apply font-heading; }
+        .container { @apply max-w-7xl; }
+      }
+      @keyframes marquee-x { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+      
+    </style>
+  </head>
+  <body>
+    <header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b">
+      <div class="hidden md:block border-b">
+        <div class="container py-2 text-xs text-slate-500 flex items-center justify-between">
+          <div class="flex items-center gap-4">
+            <span class="inline-flex items-center gap-1"><svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72c.12.81.3 1.6.54 2.36a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.72-1.06a2 2 0 0 1 2.11-.45c.76.24 1.55.42 2.36.54A2 2 0 0 1 22 16.92z"/></svg> +44 20 7123 4567</span>
+            <span class="inline-flex items-center gap-1"><svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z" fill="none"/><path d="m22 6-10 7L2 6"/></svg> hello@rongdhanu.co.uk</span>
+            <span class="hidden lg:inline-flex items-center gap-1"><svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg> London, UK</span>
+          </div>
+          <nav class="flex items-center gap-4">
+            <a href="#careers" class="hover:text-slate-700">Careers</a>
+            <a href="#support" class="hover:text-slate-700">Support</a>
+          </nav>
+        </div>
+      </div>
+      <div class="container h-16 flex items-center justify-between">
+        <a href="#top" class="flex items-center gap-2">
+          <div class="w-8 h-8 rounded-md bg-primary"></div>
+          <span class="font-bold tracking-tight">Rongdhanu Software</span>
+        </a>
+        <nav class="hidden md:flex items-center gap-6 text-sm">
+          <a href="#about" class="text-slate-600 hover:text-slate-900">About</a>
+          <a href="#features" class="text-slate-600 hover:text-slate-900">Features</a>
+          <a href="#pricing" class="text-slate-600 hover:text-slate-900">Pricing</a>
+          <a href="#blog" class="text-slate-600 hover:text-slate-900">Blog</a>
+        </nav>
+        <div class="flex items-center gap-2">
+          <a href="#contact" class="hidden sm:inline-flex items-center justify-center h-10 px-4 rounded-md text-sm hover:bg-slate-50">Contact</a>
+          <a href="#cta" class="inline-flex items-center gap-2 h-10 px-4 rounded-md text-sm font-medium text-white bg-primary hover:bg-red-500">Start a Project <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+        </div>
+      </div>
+      <div class="md:hidden border-t">
+        <details class="container py-3">
+          <summary class="flex items-center justify-between text-sm font-medium cursor-pointer">Menu <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <div class="mt-2 grid gap-2 text-slate-600">
+            <a href="#about" class="py-2 hover:text-slate-900">About</a>
+            <a href="#features" class="py-2 hover:text-slate-900">Features</a>
+            <a href="#pricing" class="py-2 hover:text-slate-900">Pricing</a>
+            <a href="#blog" class="py-2 hover:text-slate-900">Blog</a>
+          </div>
+        </details>
+      </div>
+    </header>
+
+    <!-- hero section start -->
+
+<section id="top" class="container  grid grid-cols-1 lg:grid-cols-2 gap-12 items-center py-16 md:py-24 relative ">
+    <div data-aos="fade-right">
+        <span class="inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs text-slate-500 mb-6"><span class="w-3 h-3 rounded-full bg-primary"></span> Premium UK-based Software Consultancy</span>
+        <h1 class="text-4xl md:text-5xl lg:text-5xl font-extrabold tracking-tight leading-tight">We design and build modern software </h1>
+        <p class="mt-6 text-lg text-slate-600 max-w-2xl">From strategy to scalable delivery, our London team partners with you to ship reliable, secure, and elegant products.From strategy to scalable delivery, our London team partners with you to ship reliable, secure, and elegant products.From strategy to scalable delivery, our London team partners with you to ship reliable, secure, and elegant products.</p>
+        <div class="mt-8 flex flex-wrap items-center gap-4">
+            <a href="#cta" class="inline-flex items-center gap-2 h-12 px-6 rounded-lg text-lg font-semibold text-white bg-primary hover:bg-red-700 transition-all duration-300 shadow-lg shadow-red-200">
+                Get Started 
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+                </svg>
+            </a>
+            <a href="#demo" class="inline-flex items-center h-12 px-6 rounded-lg text-lg font-semibold border border-gray-300 text-gray-800 hover:bg-gray-100 transition-all duration-300 shadow-md">
+                Book a Demo 
+                <svg class="w-5 h-5 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+                </svg>
+            </a>
+        </div>
+        <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="rounded-xl border p-4" data-aos="zoom-in" data-aos-delay="100">
+                <div class="flex items-center gap-3">
+                    <svg class="w-5 h-5 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="M5 8l7 4 7-4"/></svg>
+                    <div>
+                        <p class="font-semibold">Enterprise-grade security</p>
+                        <p class="text-sm text-slate-500">ISO practices, audits, and SOC2 workflows.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="rounded-xl border p-4" data-aos="zoom-in" data-aos-delay="200">
+                <div class="flex items-center gap-3">
+                    <svg class="w-5 h-5 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2H6a2 2 0 0 0-2 2v7"/><path d="M22 13a5 5 0 0 1-5 5"/><path d="M9 22h7a2 2 0 0 0 2-2v-7"/><path d="M2 9a5 5 0 0 1 5-5"/></svg>
+                    <div>
+                        <p class="font-semibold">Delivery at startup speed</p>
+                        <p class="text-sm text-slate-500">Iterate fast without compromising quality.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="relative w-full h-[520px] md:h-[720px] flex items-center justify-center p-4 md:p-8 bg-white rounded-2xl border border-gray-100 mt-12 lg:mt-0" data-aos="fade-left">
+        <div class="absolute inset-0 overflow-hidden rounded-2xl">
+            <div class="absolute -top-10 -left-10 w-60 h-60 bg-orange-200 opacity-20 rounded-full blur-3xl"></div>
+            <div class="absolute top-1/2 right-0 -translate-y-1/2 w-48 h-48 bg-red-200 opacity-20 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 left-1/4 w-72 h-72 bg-blue-200 opacity-20 rounded-full blur-3xl"></div>
+            <div class="absolute inset-0 z-0 opacity-10" style="background-image: radial-gradient(circle, #000 1px, transparent 1px);"></div>
+        </div>
+
+        <div class="relative z-10 w-full md:w-[400px] h-full flex items-center justify-center p-4">
+            <div class="relative w-full h-full bg-gray-100 rounded-3xl overflow-hidden shadow-2xl transition-transform duration-500 hover:scale-105">
+                <img src="img/3.PNG" alt="Phone in hand" class="object-cover w-full h-full" />
+                <div class="absolute inset-0 bg-black opacity-20 transition-opacity duration-300 hover:opacity-0"></div>
+            </div>
+            
+            <div class="absolute bottom-6 left-1/2 -translate-x-1/2 bg-white px-6 py-3 rounded-full shadow-xl text-lg font-bold text-gray-800 whitespace-nowrap border border-gray-200 transform translate-y-2 opacity-0 animate-fade-in-up">
+                Creating Marketing Models...
+            </div>
+            <div class="absolute top-8 right-8 z-20 transform animate-pulse-fast">
+                <svg class="w-10 h-10 text-orange-500 drop-shadow-lg" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2L2 12L12 22L22 12L12 2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" fill="#F97316"/>
+                    <path d="M12 6L6 12L12 18L18 12L12 6Z" fill="white"/>
+                </svg>
+            </div>
+        </div>
+
+        <div class="absolute -bottom-8 left-1/2 -translate-x-1/2 md:left-0 md:translate-x-0 w-[calc(50%-1rem)] bg-white p-4 rounded-xl shadow-lg border border-gray-200" data-aos="zoom-in" data-aos-delay="200">
+            <p class="text-sm font-medium text-gray-500">Blog Traffic <span class="text-green-500 font-semibold inline-flex items-center"><svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg> +18.5%</span></p>
+            <p class="text-3xl font-bold mt-1">125,536</p>
+            <p class="text-xs text-gray-400">Since last week</p>
+        </div>
+
+        <div class="absolute -bottom-8 right-1/2 translate-x-1/2 md:right-0 md:translate-x-0 w-[calc(50%-1rem)] bg-white p-4 rounded-xl shadow-lg border border-gray-200" data-aos="zoom-in" data-aos-delay="300">
+            <p class="text-sm font-medium text-gray-500">SEO Analytics <span class="text-green-500 font-semibold inline-flex items-center"><svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg> +20%</span></p>
+            <div class="relative w-24 h-24 mt-2 mx-auto">
+                <svg class="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="45" fill="none" class="stroke-gray-200" stroke-width="10"></circle>
+                    <circle cx="50" cy="50" r="45" fill="none" class="stroke-primary" stroke-width="10" stroke-dasharray="283" stroke-dashoffset="56.6"></circle>
+                </svg>
+                <span class="absolute inset-0 flex items-center justify-center text-xl font-bold">80%</span>
+            </div>
+        </div>
+
+        <div class="absolute top-1/2 -right-8 transform -translate-y-1/2 rotate-6 bg-red-500 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md">AI Integrated</div>
+
+        <div class="absolute top-8 right-4 lg:right-auto lg:left-full lg:ml-8 flex flex-col space-y-2 p-2 bg-white rounded-xl shadow-lg border border-gray-200">
+            <div class="w-8 h-8 rounded-md grid place-items-center text-gray-400 bg-gray-50 hover:bg-gray-100 transition-colors cursor-pointer"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg></div>
+            <div class="w-8 h-8 rounded-md grid place-items-center text-gray-400 bg-gray-50 hover:bg-gray-100 transition-colors cursor-pointer"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h10M7 16h10"></path></svg></div>
+            <div class="w-8 h-8 rounded-md grid place-items-center text-gray-400 bg-gray-50 hover:bg-gray-100 transition-colors cursor-pointer"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg></div>
+            <div class="w-8 h-8 rounded-md grid place-items-center text-gray-400 bg-gray-50 hover:bg-gray-100 transition-colors cursor-pointer"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg></div>
+        </div>
+
+        <div class="absolute top-[calc(50%+100px)] right-4 lg:right-auto lg:left-full lg:ml-8 w-16 h-16 rounded-full bg-orange-100 border-2 border-orange-300 grid place-items-center text-orange-500 shadow-md">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+            <span class="absolute bottom-1 right-1 w-4 h-4 rounded-full bg-primary text-white text-xs flex items-center justify-center">+</span>
+        </div>
+    </div>
+</section>
+
+
+
+
+    <!-- hero section end -->
+
+
+    <!-- about section start  -->
+
+      <section id="about" class="border-t bg-gradient-to-br from-white to-slate-50 py-16 md:py-24 relative overflow-hidden">
+    <div class="container grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div data-aos="fade-right" data-aos-duration="800" class="relative z-10">
+            <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-slate-800 leading-tight">Empowering Businesses with <span class="text-primary">Innovative Software Solutions</span></h2>
+            <p class="mt-6 text-lg text-slate-700 max-w-xl">We are a UK-based team of passionate engineers, creative designers, and strategic product thinkers. We specialize in building robust, high-performance platforms with an unwavering focus on exceptional user experience, accessibility, and long-term maintainability.</p>
+            <ul class="mt-8 space-y-4 text-slate-700">
+                <li class="flex items-center gap-3">
+                    <svg class="w-6 h-6 text-primary flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> 
+                    <p class="font-medium">Globally recognized UK-based team, serving diverse clientele.</p>
+                </li>
+                <li class="flex items-center gap-3">
+                    <svg class="w-6 h-6 text-primary flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> 
+                    <p class="font-medium">Transparent development processes with continuous weekly demonstrations.</p>
+                </li>
+                <li class="flex items-center gap-3">
+                    <svg class="w-6 h-6 text-primary flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> 
+                    <p class="font-medium">Security-first mindset integrated into all best practices and workflows.</p>
+                </li>
+            </ul>
+        </div>
+        <div data-aos="fade-left" data-aos-duration="800" class="relative z-10">
+    <div class="relative overflow-hidden rounded-3xl shadow-2xl bg-white p-4">
+        <div class="relative w-full">
+            <div id="image-slider" class="flex transition-transform duration-500 ease-in-out">
+                <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=2000&auto=format&fit=crop" class="w-full h-80 object-cover rounded-2xl shadow-lg flex-shrink-0" alt="Team workshop" />
+                <img src="https://images.unsplash.com/photo-1557800636-894a64c1696f?q=80&w=2000&auto=format&fit=crop" class="w-full h-80 object-cover rounded-2xl shadow-lg flex-shrink-0" alt="Code review" />
+                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2000&auto=format&fit-cover" class="w-full h-80 object-cover rounded-2xl shadow-lg flex-shrink-0" alt="Design sprint" />
+                <img src="https://images.unsplash.com/photo-1508780709619-79562169bc64?q=80&w=2000&auto=format&fit=crop" class="w-full h-80 object-cover rounded-2xl shadow-lg flex-shrink-0" alt="Another slide" />
+            </div>
+            
+            <button id="prev-slide" class="absolute top-1/2 left-4 -translate-y-1/2 bg-white rounded-full p-2 shadow-md transition-all duration-300 hover:bg-gray-100">
+                <svg class="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+            </button>
+            <button id="next-slide" class="absolute top-1/2 right-4 -translate-y-1/2 bg-white rounded-full p-2 shadow-md transition-all duration-300 hover:bg-gray-100">
+                <svg class="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </button>
+        </div>
+    </div>
+    
+    <div class="mt-8 flex flex-wrap gap-4 justify-center lg:justify-start">
+        <div class="bg-white p-5 rounded-lg shadow-xl text-center transition-transform hover:scale-105 duration-300 min-w-[150px]">
+            <p class="text-4xl font-extrabold text-primary">10+</p>
+            <p class="text-sm text-slate-600 mt-1">Years Experience</p>
+        </div>
+        <div class="bg-white p-5 rounded-lg shadow-xl text-center transition-transform hover:scale-105 duration-300 min-w-[150px]">
+            <p class="text-4xl font-extrabold text-primary">50+</p>
+            <p class="text-sm text-slate-600 mt-1">Successful Projects</p>
+        </div>
+        <div class="bg-white p-5 rounded-lg shadow-xl text-center transition-transform hover:scale-105 duration-300 min-w-[150px]">
+            <p class="text-4xl font-extrabold text-primary">100%</p>
+            <p class="text-sm text-slate-600 mt-1">Client Satisfaction</p>
+        </div>
+    </div>
+</div>
+    </div>
+</section>
+    <!-- about section end  -->
+
+    <section id="features" class="container py-16 md:py-24">
+      <div data-aos="fade-up">
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-center">Powerful features, thoughtfully designed</h2>
+        <p class="mt-4 text-slate-600 text-center max-w-2xl mx-auto">Everything you need to plan, build and scale modern software products with confidence.</p>
+      </div>
+      <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="rounded-2xl border p-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="w-10 h-10 rounded-md bg-red-50 text-primary grid place-items-center"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="M5 8l7 4 7-4"/></svg></div>
+          <h3 class="mt-4 font-semibold text-lg">Security by default</h3>
+          <p class="mt-2 text-sm text-slate-600">OWASP-aligned, secure SDLC and continuous monitoring.</p>
+        </div>
+        <div class="rounded-2xl border p-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="w-10 h-10 rounded-md bg-red-50 text-primary grid place-items-center"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2H6a2 2 0 0 0-2 2v7"/><path d="M22 13a5 5 0 0 1-5 5"/><path d="M9 22h7a2 2 0 0 0 2-2v-7"/><path d="M2 9a5 5 0 0 1 5-5"/></svg></div>
+          <h3 class="mt-4 font-semibold text-lg">Performance obsessed</h3>
+          <p class="mt-2 text-sm text-slate-600">Lighthouse 95+, Core Web Vitals and API throughput.</p>
+        </div>
+        <div class="rounded-2xl border p-6" data-aos="fade-up" data-aos-delay="300">
+          <div class="w-10 h-10 rounded-md bg-red-50 text-primary grid place-items-center"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></svg></div>
+          <h3 class="mt-4 font-semibold text-lg">Human-centered UX</h3>
+          <p class="mt-2 text-sm text-slate-600">Accessible, inclusive experiences your users love.</p>
+        </div>
+        <div class="rounded-2xl border p-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="w-10 h-10 rounded-md bg-red-50 text-primary grid place-items-center"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M19 13H7"/><path d="M13 7v12"/></svg></div>
+          <h3 class="mt-4 font-semibold text-lg">Global scale</h3>
+          <p class="mt-2 text-sm text-slate-600">CDN-first deployments and resilient multi-region setups.</p>
+        </div>
+        <div class="rounded-2xl border p-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="w-10 h-10 rounded-md bg-red-50 text-primary grid place-items-center"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7h-9"/><path d="M14 17H5"/><circle cx="7" cy="7" r="2"/><circle cx="17" cy="17" r="2"/></svg></div>
+          <h3 class="mt-4 font-semibold text-lg">Modern stack</h3>
+          <p class="mt-2 text-sm text-slate-600">TypeScript, React, serverless, and cloud-native tooling.</p>
+        </div>
+        <div class="rounded-2xl border p-6" data-aos="fade-up" data-aos-delay="300">
+          <div class="w-10 h-10 rounded-md bg-red-50 text-primary grid place-items-center"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20v-6"/><path d="M18 20V10"/><path d="M6 20V14"/></svg></div>
+          <h3 class="mt-4 font-semibold text-lg">Data you can trust</h3>
+          <p class="mt-2 text-sm text-slate-600">Auditable pipelines, backups, and observability built-in.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="border-t bg-slate-50/70">
+      <div class="container py-16 md:py-24">
+        <div class="relative mx-auto max-w-5xl" data-aos="fade-in">
+          <button class="group relative w-full overflow-hidden rounded-2xl video-trigger" aria-label="Play company video" data-video="https://www.youtube.com/embed/ysz5S6PUM-U?autoplay=1&rel=0">
+            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2000&auto=format&fit=crop" alt="Video preview" class="aspect-video w-full object-cover" />
+            <div class="absolute inset-0 grid place-items-center bg-black/20">
+              <span class="inline-flex items-center gap-2 rounded-full bg-white/90 px-5 py-3 text-sm font-medium shadow group-hover:bg-white">
+                <svg class="w-4 h-4 text-primary" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Watch the video
+              </span>
+            </div>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="container py-16 md:py-24">
+      <div class="grid gap-12 lg:grid-cols-2 items-center">
+        <div data-aos="fade-right">
+          <h2 class="text-3xl md:text-4xl font-bold tracking-tight">Why teams choose us</h2>
+          <p class="mt-4 text-slate-600">We combine deep technical expertise with pragmatic product thinking to deliver outcomes—not just output.</p>
+          <div class="mt-8 grid gap-6 sm:grid-cols-2">
+            <div class="rounded-xl border p-6">
+              <div class="w-10 h-10 rounded-md bg-red-50 text-primary grid place-items-center"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 15 5-5"/><path d="m12 15-5-5"/><path d="M20 7a9 9 0 1 1-16 0 9 9 0 0 1 16 0"/></svg></div>
+              <h3 class="mt-3 font-semibold">Proven quality</h3>
+              <p class="mt-1 text-sm text-slate-600">Battle-tested patterns and peer-reviewed code.</p>
+            </div>
+            <div class="rounded-xl border p-6">
+              <div class="w-10 h-10 rounded-md bg-red-50 text-primary grid place-items-center"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v6h6"/><path d="M2 12a10 10 0 1 0 10-10"/></svg></div>
+              <h3 class="mt-3 font-semibold">On-time delivery</h3>
+              <p class="mt-1 text-sm text-slate-600">Weekly milestones and transparent reporting.</p>
+            </div>
+            <div class="rounded-xl border p-6">
+              <div class="w-10 h-10 rounded-md bg-red-50 text-primary grid place-items-center"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l18 18"/><path d="M3 21V3h18"/></svg></div>
+              <h3 class="mt-3 font-semibold">UK timezone</h3>
+              <p class="mt-1 text-sm text-slate-600">Local team aligned to your schedule.</p>
+            </div>
+            <div class="rounded-xl border p-6">
+              <div class="w-10 h-10 rounded-md bg-red-50 text-primary grid place-items-center"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20v-6"/><path d="M18 20V8"/><path d="M6 20V14"/></svg></div>
+              <h3 class="mt-3 font-semibold">Collaborative</h3>
+              <p class="mt-1 text-sm text-slate-600">We work as an extension of your team.</p>
+            </div>
+          </div>
+        </div>
+        <div data-aos="fade-left">
+          <div class="overflow-hidden rounded-xl">
+            <div class="flex gap-4 auto-slider snap-x snap-mandatory overflow-x-auto scroll-smooth">
+              <img src="https://images.unsplash.com/photo-1522071901873-411886a10004?q=80&w=2000&auto=format&fit=crop" class="snap-start w-[85%] sm:w-[70%] md:w-[60%] lg:w-[50%] h-64 object-cover rounded-xl shadow" alt="Interface 1" />
+              <img src="https://images.unsplash.com/photo-1508780709619-79562169bc64?q=80&w=2000&auto=format&fit=crop" class="snap-start w-[85%] sm:w-[70%] md:w-[60%] lg:w-[50%] h-64 object-cover rounded-xl shadow" alt="Interface 2" />
+              <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2000&auto=format&fit=crop" class="snap-start w-[85%] sm:w-[70%] md:w-[60%] lg:w-[50%] h-64 object-cover rounded-xl shadow" alt="Interface 3" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="border-t bg-slate-50/70">
+      <div class="container py-16 md:py-24">
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-center" data-aos="fade-up">Our process</h2>
+        <div class="mt-10 grid gap-6 md:grid-cols-4">
+          <div class="rounded-2xl border p-6" data-aos="fade-up" data-aos-delay="100"><span class="text-sm font-semibold text-primary">01</span><h3 class="mt-2 font-semibold">Discover</h3><p class="mt-2 text-sm text-slate-600">Deep-dive workshops to align on goals and constraints.</p></div>
+          <div class="rounded-2xl border p-6" data-aos="fade-up" data-aos-delay="200"><span class="text-sm font-semibold text-primary">02</span><h3 class="mt-2 font-semibold">Design</h3><p class="mt-2 text-sm text-slate-600">Prototypes and architecture to validate the approach.</p></div>
+          <div class="rounded-2xl border p-6" data-aos="fade-up" data-aos-delay="300"><span class="text-sm font-semibold text-primary">03</span><h3 class="mt-2 font-semibold">Build</h3><p class="mt-2 text-sm text-slate-600">Iterative delivery with weekly demos and QA.</p></div>
+          <div class="rounded-2xl border p-6" data-aos="fade-up" data-aos-delay="400"><span class="text-sm font-semibold text-primary">04</span><h3 class="mt-2 font-semibold">Scale</h3><p class="mt-2 text-sm text-slate-600">Monitoring, SRE and ongoing optimisation.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing" class="container py-16 md:py-24">
+      <div data-aos="fade-up">
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-center">Simple, transparent pricing</h2>
+        <p class="mt-4 text-slate-600 text-center max-w-2xl mx-auto">Flexible engagement models designed to fit your stage.</p>
+      </div>
+      <div class="mt-10 grid gap-6 md:grid-cols-3">
+        <div class="relative rounded-2xl border p-6 flex flex-col" data-aos="fade-up" data-aos-delay="100">
+          <h3 class="font-semibold">Starter</h3>
+          <div class="mt-4"><span class="text-3xl font-bold">£4,900</span><span class="text-sm text-slate-600">/month</span></div>
+          <ul class="mt-6 space-y-2 text-sm">
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> UX audit</li>
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> 1 squad</li>
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Weekly demo</li>
+          </ul>
+          <a href="#cta" class="mt-6 inline-flex items-center justify-center h-11 px-4 rounded-md bg-primary text-white hover:bg-red-500">Choose Starter</a>
+        </div>
+        <div class="relative rounded-2xl border p-6 flex flex-col ring-2 ring-primary" data-aos="fade-up" data-aos-delay="200">
+          <span class="absolute -top-3 left-6 rounded-full bg-primary px-3 py-1 text-xs text-white">Most Popular</span>
+          <h3 class="font-semibold">Growth</h3>
+          <div class="mt-4"><span class="text-3xl font-bold">£9,900</span><span class="text-sm text-slate-600">/month</span></div>
+          <ul class="mt-6 space-y-2 text-sm">
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Product + engineering</li>
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> 2 squads</li>
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> SLA support</li>
+          </ul>
+          <a href="#cta" class="mt-6 inline-flex items-center justify-center h-11 px-4 rounded-md bg-primary text-white hover:bg-red-500">Choose Growth</a>
+        </div>
+        <div class="relative rounded-2xl border p-6 flex flex-col" data-aos="fade-up" data-aos-delay="300">
+          <h3 class="font-semibold">Enterprise</h3>
+          <div class="mt-4"><span class="text-3xl font-bold">Custom</span></div>
+          <ul class="mt-6 space-y-2 text-sm">
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Security reviews</li>
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> SRE support</li>
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Dedicated PM</li>
+          </ul>
+          <a href="#cta" class="mt-6 inline-flex items-center justify-center h-11 px-4 rounded-md bg-primary text-white hover:bg-red-500">Contact Sales</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="blog" class="border-t bg-slate-50/70">
+      <div class="container py-16 md:py-24">
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-center" data-aos="fade-up">From the blog</h2>
+        <div class="mt-10 grid gap-6 md:grid-cols-3">
+          <article class="overflow-hidden rounded-2xl border" data-aos="fade-up" data-aos-delay="100">
+            <img src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?q=80&w=2000&auto=format&fit=crop" alt="" class="h-48 w-full object-cover" />
+            <div class="p-6">
+              <h3 class="font-semibold">Design systems for velocity</h3>
+              <a href="#" class="mt-2 inline-flex items-center gap-1 text-sm text-primary">Read more <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+            </div>
+          </article>
+          <article class="overflow-hidden rounded-2xl border" data-aos="fade-up" data-aos-delay="200">
+            <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=2000&auto=format&fit=crop" alt="" class="h-48 w-full object-cover" />
+            <div class="p-6">
+              <h3 class="font-semibold">Security practices we follow</h3>
+              <a href="#" class="mt-2 inline-flex items-center gap-1 text-sm text-primary">Read more <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+            </div>
+          </article>
+          <article class="overflow-hidden rounded-2xl border" data-aos="fade-up" data-aos-delay="300">
+            <img src="https://images.unsplash.com/photo-1522252234503-e356532cafd5?q=80&w=2000&auto=format&fit=crop" alt="" class="h-48 w-full object-cover" />
+            <div class="p-6">
+              <h3 class="font-semibold">Optimising Next.js for scale</h3>
+              <a href="#" class="mt-2 inline-flex items-center gap-1 text-sm text-primary">Read more <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="container py-16 md:py-24">
+      <div data-aos="fade-up">
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-center">Frequently asked questions</h2>
+      </div>
+      <div class="mx-auto mt-8 max-w-3xl divide-y" data-aos="fade-up" data-aos-delay="100">
+        <details class="group py-4">
+          <summary class="flex cursor-pointer list-none items-center justify-between font-medium">Where are you based?<span class="ml-4 w-5 h-5 rounded-full bg-slate-100 grid place-items-center text-xs text-slate-500 group-open:rotate-45 transition">+</span></summary>
+          <p class="mt-2 text-slate-600">Our core team is in London, UK. We work with clients across Europe and North America.</p>
+        </details>
+        <details class="group py-4">
+          <summary class="flex cursor-pointer list-none items-center justify-between font-medium">What stacks do you use?<span class="ml-4 w-5 h-5 rounded-full bg-slate-100 grid place-items-center text-xs text-slate-500 group-open:rotate-45 transition">+</span></summary>
+          <p class="mt-2 text-slate-600">We specialise in TypeScript, React, Node.js, serverless, and cloud-native architectures.</p>
+        </details>
+        <details class="group py-4">
+          <summary class="flex cursor-pointer list-none items-center justify-between font-medium">How do engagements work?<span class="ml-4 w-5 h-5 rounded-full bg-slate-100 grid place-items-center text-xs text-slate-500 group-open:rotate-45 transition">+</span></summary>
+          <p class="mt-2 text-slate-600">We work in monthly sprints with weekly demos, fixed outcomes and flexible scope.</p>
+        </details>
+      </div>
+    </section>
+
+    <footer class="border-t bg-white">
+      <div class="container py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <div class="flex items-center gap-2">
+            <div class="w-8 h-8 rounded-md bg-primary"></div>
+            <span class="font-bold tracking-tight text-lg">Rongdhanu Software</span>
+          </div>
+          <p class="mt-4 text-sm text-slate-600 max-w-xs">Premium UK-based software consultancy crafting modern, scalable products for ambitious teams.</p>
+          <div class="mt-4 flex items-center gap-3 text-slate-500">
+            <a aria-label="Twitter" href="#" class="hover:text-slate-900"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53A4.48 4.48 0 0 0 12 7v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+            <a aria-label="LinkedIn" href="#" class="hover:text-slate-900"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+            <a aria-label="GitHub" href="#" class="hover:text-slate-900"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12a10 10 0 0 0 6.839 9.488c.5.092.682-.217.682-.483 0-.237-.009-.868-.014-1.703-2.782.604-3.369-1.34-3.369-1.34-.454-1.153-1.11-1.461-1.11-1.461-.908-.62.069-.607.069-.607 1.003.071 1.531 1.03 1.531 1.03.892 1.53 2.341 1.088 2.91.833.091-.647.35-1.088.636-1.339-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.272.098-2.65 0 0 .84-.269 2.75 1.025A9.56 9.56 0 0 1 12 6.844a9.56 9.56 0 0 1 2.5.336c1.91-1.294 2.75-1.025 2.75-1.025.544 1.378.201 2.397.099 2.65.64.699 1.028 1.592 1.028 2.683 0 3.842-2.337 4.687-4.563 4.937.36.31.679.92.679 1.855 0 1.338-.012 2.417-.012 2.744 0 .268.18.58.688.481A10.001 10.001 0 0 0 22 12c0-5.523-4.477-10-10-10z"/></svg></a>
+            <a aria-label="Facebook" href="#" class="hover:text-slate-900"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          </div>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-4">Company</h4>
+          <ul class="space-y-2 text-sm text-slate-600">
+            <li><a href="#about" class="hover:text-slate-900">About</a></li>
+            <li><a href="#careers" class="hover:text-slate-900">Careers</a></li>
+            <li><a href="#press" class="hover:text-slate-900">Press</a></li>
+            <li><a href="#contact" class="hover:text-slate-900">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-4">Products</h4>
+          <ul class="space-y-2 text-sm text-slate-600">
+            <li><a href="#features" class="hover:text-slate-900">Platform</a></li>
+            <li><a href="#integrations" class="hover:text-slate-900">Integrations</a></li>
+            <li><a href="#security" class="hover:text-slate-900">Security</a></li>
+            <li><a href="#status" class="hover:text-slate-900">Status</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-4">Resources</h4>
+          <ul class="space-y-2 text-sm text-slate-600">
+            <li><a href="#blog" class="hover:text-slate-900">Blog</a></li>
+            <li><a href="#docs" class="hover:text-slate-900">Documentation</a></li>
+            <li><a href="#guides" class="hover:text-slate-900">Guides</a></li>
+            <li><a href="#support" class="hover:text-slate-900">Support</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t">
+        <div class="container py-6 text-xs text-slate-600 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p>© <span id="year"></span> Rongdhanu Software Ltd. All rights reserved.</p>
+          <div class="flex items-center gap-4">
+            <a href="#privacy" class="hover:text-slate-900">Privacy</a>
+            <a href="#terms" class="hover:text-slate-900">Terms</a>
+            <a href="#cookies" class="hover:text-slate-900">Cookies</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Auto slide horizontally for elements with .auto-slider
+      document.querySelectorAll('.auto-slider').forEach((el) => {
+        let idx = 0;
+        const children = Array.from(el.children);
+        const tick = () => {
+          idx = (idx + 1) % children.length;
+          el.scrollTo({ left: children[idx].offsetLeft - 16, behavior: 'smooth' });
+        };
+        setInterval(tick, 4000);
+      });
+
+      // Video overlay trigger
+      document.querySelectorAll('.video-trigger').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const src = btn.getAttribute('data-video');
+          const wrapper = document.createElement('div');
+          wrapper.className = 'aspect-video w-full overflow-hidden rounded-2xl';
+          wrapper.innerHTML = `<iframe class="w-full h-full" src="${src}" title="Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
+          btn.replaceWith(wrapper);
+        });
+      });
+
+      // Footer year
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      // about 
+
+      document.addEventListener('DOMContentLoaded', () => {
+    const slider = document.getElementById('image-slider');
+    const prevBtn = document.getElementById('prev-slide');
+    const nextBtn = document.getElementById('next-slide');
+    const slides = Array.from(slider.children);
+    let slideIndex = 0;
+    let autoSlideInterval;
+
+    const updateSlider = () => {
+        const slideWidth = slides[0].clientWidth;
+        slider.style.transform = `translateX(-${slideIndex * slideWidth}px)`;
+    };
+
+    const nextSlide = () => {
+        slideIndex = (slideIndex + 1) % slides.length;
+        updateSlider();
+    };
+
+    const prevSlide = () => {
+        slideIndex = (slideIndex - 1 + slides.length) % slides.length;
+        updateSlider();
+    };
+
+    const startAutoSlide = () => {
+        autoSlideInterval = setInterval(nextSlide, 4000); // 4 সেকেন্ড পর পর স্লাইড পরিবর্তন
+    };
+
+    const stopAutoSlide = () => {
+        clearInterval(autoSlideInterval);
+    };
+
+    nextBtn.addEventListener('click', () => {
+        nextSlide();
+        stopAutoSlide();
+        startAutoSlide();
+    });
+
+    prevBtn.addEventListener('click', () => {
+        prevSlide();
+        stopAutoSlide();
+        startAutoSlide();
+    });
+
+    // স্লাইডারের আকার পরিবর্তন হলে আপডেট করুন
+    window.addEventListener('resize', updateSlider);
+
+    // প্রাথমিক লোডে স্লাইডার শুরু করুন
+    startAutoSlide();
+});
+    </script>
+    
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        once: true,
+      });
+    </script>
+  </body>
+</html>
